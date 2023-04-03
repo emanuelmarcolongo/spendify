@@ -101,7 +101,7 @@
   left: 50%;
   position: absolute;
   filter: blur(45px);
-  transform: translateZ(0);
+  transform: tranindigoZ(0);
 }
 
 .logo,
@@ -117,7 +117,7 @@
   height: 75px;
   padding: 25px 10px;
   margin-left: 16px;
-  transform: translateZ(0);
+  transform: tranindigoZ(0);
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: 0px 2px 8px -1px #0000001a;
@@ -159,7 +159,7 @@
   }
 
   .card:hover span {
-    transform: translateX(4px);
+    transform: tranindigoX(4px);
   }
 }
 
