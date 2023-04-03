@@ -15,12 +15,14 @@
     "@prisma/client": "^4.12.0",
     "@types/react": "18.0.32",
     "@types/react-dom": "18.0.11",
+    "bcrypt": "^5.1.0",
     "next": "13.2.4",
     "next-auth": "^0.0.0-pr.6777.c5550344",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/node": "^18.15.11",
     "prisma": "^4.12.0",
     "ts-node": "^10.9.1",

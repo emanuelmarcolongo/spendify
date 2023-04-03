@@ -1,5 +1,8 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import { User } from "./user";
+
+
 
 
 export default async function Home() {
@@ -7,8 +10,14 @@ export default async function Home() {
 
   return (
     <main className=''>
-      <>{JSON.stringify(serversession)}</>
-     Olá mundo
+      <>
+      Server Side User {JSON.stringify(serversession)}
+      </>
+      <br></br>
+      Client User: <User/>
+   
+    
+     
     </main>
   )
 }
