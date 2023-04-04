@@ -33,7 +33,26 @@ export default function AddTransactionForm() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    console.log(form);
+    try {
+      const options = {
+        method: "post",
+        body: JSON.stringify(form),
+      };
+  
+      const res = await fetch("/api/transactions", options);
+
+      if (res.status === 200) {
+        alert(await res.json())
+      }
+      else if (res.status !== 200) {
+        setError(await res.json())
+      }
+    } catch (error: any) {
+      setError(error?.message)
+    }
+    
+
+   
   }
 
   return (

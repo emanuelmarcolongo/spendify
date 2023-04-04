@@ -1,4 +1,5 @@
 import { prisma } from "./prisma";
+import { TransactionInput } from "./types";
 
 
 export async function getUserTransactions (userId: number) {
@@ -9,4 +10,14 @@ export async function getUserTransactions (userId: number) {
     })
 
     return userTransactions
+}
+
+
+export async function postUserTransaction (data: TransactionInput) {
+    
+    await prisma.transactions.create({
+        data
+    })
+
+    return;
 }
