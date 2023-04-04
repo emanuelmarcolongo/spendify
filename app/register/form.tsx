@@ -52,7 +52,7 @@ export default function SignUpForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-8 w-full sm:w-[400px]">
-      <div className="grid w-full items-center">
+      <div className="grid w-full gap-2 items-center">
         <Label htmlFor="name">Nome completo</Label>
         <Input required value={form.name} onChange={handleForm} name='name' type='text'></Input>
       </div>
