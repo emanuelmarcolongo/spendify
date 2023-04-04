@@ -1,10 +1,14 @@
 import './globals.css'
 import { Providers } from './providers'
+import { Metadata } from 'next';
 
-export const metadata = {
-  title: 'Spendify',
-  description: 'a next aplication',
-}
+export const metadata: Metadata = {
+  title: {
+    default: 'Spendify',
+    template: ' Spendify | %s',
+  },
+  description: "Sua carteira centralizada, gerencie bem suas despesas e conquiste seus objetivos",
+};
 
 
 

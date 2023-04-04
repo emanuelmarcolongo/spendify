@@ -3,6 +3,7 @@ import { hash } from "bcrypt";
 import { NextResponse } from "next/server";
 
 
+
 export async function POST(req: Request) {
 
     try {
@@ -16,8 +17,6 @@ export async function POST(req: Request) {
            {status: 400})
     }
 
-
-   
 
     const userExists = await prisma.user.findFirst({
         where: {
@@ -46,7 +45,7 @@ export async function POST(req: Request) {
         
     } catch (err: any) {
      return new NextResponse(JSON.stringify({
-       error: err.message
+       error: 'Algo deu errado, tente novamente'
      }),
       {status: 500})
     }
