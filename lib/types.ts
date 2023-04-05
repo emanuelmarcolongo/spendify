@@ -7,14 +7,24 @@ export type sessionWithAuthOp = {
     }
 }
 
-export type TransactionProps = {
+
+
+export type Transaction = {
     id: number,
-    value: number,
     userId: number,
+    value: number,
     category: string,
-    type: string,
+    createdAt: string
     description: string | null,
-    createdAt: string | Date,
+    type: string
 }
 
-export type TransactionInput = Omit<TransactionProps, 'id' | 'createdAt'>
+
+
+export type transactionData = {
+  transactions:
+  Transaction[] | undefined
+}
+
+
+export type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>

@@ -1,5 +1,7 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 import { prisma } from "./prisma";
-import { TransactionInput } from "./types";
+import { TransactionInput, sessionWithAuthOp } from "./types";
 
 
 export async function getUserTransactions (userId: number) {
@@ -20,4 +22,28 @@ export async function postUserTransaction (data: TransactionInput) {
     })
 
     return;
+}
+
+export async function getTransactions () {
+    const session: sessionWithAuthOp | null = await getServerSession(authOptions);
+    if (!session?.user) return;
+
+    const userId = parseInt(session?.user.id)
+    console.log(userId)
+
+    const data = await prisma.transactions.findMany({
+        where: {
+            userId
+        }
+    })
+
+    if(!data) {
+        return [];
+    }
+
+    const transactions = data.reverse();
+    return transactions.map((i) => ({
+        ...i,
+        createdAt: i.createdAt.toISOString(),
+      }));
 }
