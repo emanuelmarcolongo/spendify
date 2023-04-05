@@ -43,6 +43,11 @@ export default function AddTransactionForm() {
 
       if (res.status === 200) {
         alert(await res.json())
+        setForm({
+          value: 0,
+          type: "",
+          category: "",
+          description: ""})
       }
       else if (res.status !== 200) {
         setError(await res.json())
