@@ -1,6 +1,12 @@
 import { getTransactions } from "@/lib/transactions";
 import Transactions from "./components/transactions";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Transações",
+  };
+
 
 
 export default async function TransactionPage() {

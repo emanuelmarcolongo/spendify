@@ -14,22 +14,15 @@ import {Transaction, transactionData} from "../../../../lib/types"
 
 export default function Transactions ({transactions}: transactionData) {
 
-
-  // const {transactions} = transactions1;
-  
   const [filter, setFilter] = useState("");
-
-
-
   
-
   const filteredTransactions = 
   transactions !== undefined && transactions.length > 0 ?
   (filter === 'oldest') ? transactions.sort((a, b) => a.id - b.id) :
   (filter === 'latest' || "") ? transactions.sort((a, b) => b.id - a.id) :
   (filter === 'highest') ? transactions.sort((a, b) => b.value - a.value) :
   (filter === 'lowest') ?  transactions.sort((a, b) => a.value - b.value) :
-  ""
+  transactions
   : ""
 
 
@@ -54,19 +47,6 @@ export default function Transactions ({transactions}: transactionData) {
       <div className="max-h-[700px] mb-[150px] overflow-scroll">
 
           </div>
-      
-
-        {!filteredTransactions && transactions?.map((i) => {
-        return <TransactionComponent 
-        key={i.id}
-        id={i.id}
-        userId={i.userId}
-        type={i.type}
-        value={i.value}
-        description={i.description}
-        category={i.category}
-        createdAt={i.createdAt}/>
-      })}
       
       {filteredTransactions && filteredTransactions?.map((i) => {
         return <TransactionComponent 

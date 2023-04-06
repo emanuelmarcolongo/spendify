@@ -2,7 +2,7 @@ import AddTransactionForm from "./form"
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Add Transaction",
+    title: "Nova Transação",
   };
 
 
