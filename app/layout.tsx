@@ -1,6 +1,7 @@
 import './globals.css'
 import { Providers } from './providers'
 import { Metadata } from 'next';
+import { Poppins } from 'next/font/google'
 
 export const metadata: Metadata = {
   title: {
@@ -9,6 +10,12 @@ export const metadata: Metadata = {
   },
   description: "Sua carteira centralizada, gerencie bem suas despesas e conquiste seus objetivos",
 };
+
+const mainFont = Poppins ({
+  weight: ["100", "200", "300", "400", '500', "600", "700", "800", "900"],
+  subsets: ['latin'],
+  variable: '--mainFont',
+});
 
 
 
@@ -19,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-slate-100'>
+      <body className={`${mainFont.className} bg-slate-100`}>
         <Providers>
            {children}
         </Providers>
