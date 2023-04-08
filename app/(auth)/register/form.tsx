@@ -26,6 +26,7 @@ export default function SignUpForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError("")
 
     if (form.password !== form.confirmPassword) {
       return setError('As senhas devem ser iguais')

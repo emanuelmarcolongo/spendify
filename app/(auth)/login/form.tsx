@@ -28,6 +28,7 @@ export default function LoginForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError("")
 
     try {
       const res = await signIn("credentials", {
