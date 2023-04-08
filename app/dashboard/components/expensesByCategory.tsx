@@ -3,6 +3,7 @@ import { transactionData } from "../../../lib/types";
 export function ExpensesByCategory({ transactions }: transactionData) {
   const categoryExpenses = new Map<string, number>();
   let totalValue = 0;
+  const categoryExpensesList = []
 
   transactions?.forEach((transaction) => {
     const { category, value, type } = transaction;
@@ -17,18 +18,25 @@ export function ExpensesByCategory({ transactions }: transactionData) {
     }
   });
 
+  for (let [key, value] of categoryExpenses) { 
+    categoryExpensesList.push({category: key, value: value})
+  }
+
+  categoryExpensesList.sort((a, b) => b.value - a.value)
+
   return (
     <div className="flex flex-col ">
         <h1 className="text-xl font-semibold">
             Despesas por categoria: 
         </h1>
       <ul className="bg-blue-300">
-        {[...categoryExpenses].map(([category, value]: [string, number]) => (
-          <li key={category}>
+        {categoryExpensesList.map((expense) => (
+      
+          <li key={expense.category}>
             <p>
-              {category.charAt(0).toUpperCase()}{category.slice(1)} : R$ {(value / 100).toFixed(2)}
+              {expense.category.charAt(0).toUpperCase()}{expense.category.slice(1)} : R$ {(expense.value / 100).toFixed(2)}
             </p>
-            {((value * 100) / totalValue).toFixed(2)}%
+            {((expense.value * 100) / totalValue).toFixed(2)}%
           </li>
         ))}
       </ul>
