@@ -20,7 +20,6 @@ export default function HomeNavbar() {
                 <Button>Cadastro</Button>
                 </Link>
             </div>
-            
         </div>
      
       

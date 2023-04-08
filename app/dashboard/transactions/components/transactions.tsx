@@ -44,9 +44,6 @@ export default function Transactions ({transactions}: transactionData) {
             <SelectItem value="lowest">Menor valor</SelectItem>
           </SelectContent>
         </Select>
-      <div className="max-h-[700px] mb-[150px] overflow-scroll">
-
-          </div>
       
       {filteredTransactions && filteredTransactions?.map((i) => {
         return <TransactionComponent 
@@ -66,10 +63,7 @@ export default function Transactions ({transactions}: transactionData) {
 
 
 
-function TransactionComponent ({type, value, category, description, createdAt}: Transaction): JSX.Element {
-
-
-
+export function TransactionComponent ({type, value, category, description, createdAt}: Transaction): JSX.Element {
     return (
         <div className="flex items-center justify-evenly w-[400px] h-[60px] relative border-b-gray-200 border-b-2">
           <div className="flex flex-col absolute left-[60px]">
