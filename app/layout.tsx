@@ -1,7 +1,9 @@
+import DashboardNavbar from './dashboard/components/navbar';
 import './globals.css'
 import { Providers } from './providers'
 import { Metadata } from 'next';
 import { Poppins, Comfortaa} from 'next/font/google'
+
 
 export const metadata: Metadata = {
   title: {
@@ -28,6 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${mainFont.className} bg-slate-100`}>
         <Providers>
+          <DashboardNavbar/>
            {children}
         </Providers>
       </body>
