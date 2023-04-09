@@ -15,7 +15,7 @@ export default async function TransactionPage() {
   
 
     return(
-        <div className="flex flex-col xl:max-w-[1300px] mx-auto">
+        <div className="flex flex-col xl:max-w-[1280px] mx-auto">
             <Transactions transactions={data}/>
         </div>
     )

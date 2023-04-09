@@ -1,3 +1,4 @@
+import DashboardNavbar from "./components/navbar"
 
 export default function RootLayout({
   children,
@@ -7,7 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='bg-slate-100 flex flex-col'>
-
+          <DashboardNavbar/>
            {children}
 
       </body>
