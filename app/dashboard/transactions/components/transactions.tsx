@@ -9,6 +9,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Transaction, transactionData } from "../../../../lib/types";
+import Image from "next/image";
+
 
 export default function Transactions({ transactions }: transactionData) {
   const [filter, setFilter] = useState("");
@@ -16,13 +18,13 @@ export default function Transactions({ transactions }: transactionData) {
   const filteredTransactions =
     transactions !== undefined && transactions.length > 0
       ? filter === "oldest"
-        ? transactions.sort((a, b) => a.id - b.id)
+        ? [...transactions].sort((a, b) => a.id - b.id)
         : filter === "latest" || ""
-        ? transactions.sort((a, b) => b.id - a.id)
+        ? [...transactions].sort((a, b) => b.id - a.id)
         : filter === "highest"
-        ? transactions.sort((a, b) => b.value - a.value)
+        ? [...transactions].sort((a, b) => b.value - a.value)
         : filter === "lowest"
-        ? transactions.sort((a, b) => a.value - b.value)
+        ? [...transactions].sort((a, b) => a.value - b.value)
         : filter === "income"
         ? [...transactions].filter((i) => i.type === 'entrada')
         : filter === "spent"
@@ -31,7 +33,7 @@ export default function Transactions({ transactions }: transactionData) {
       : "";
 
   return (
-    <div className="flex flex-col w-full mx-auto bg-white lg:max-w-full lg:px-32">
+    <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full lg:px-32 rounded-xl">
       <div className=" p-10 items-center justify-center lg:flex">
         <h1 className="font-bold text-xl mb-[15px] lg:w-[50%]">
           Minhas transações
@@ -82,7 +84,16 @@ export function TransactionComponent({
   createdAt,
 }: Transaction): JSX.Element {
   return (
-    <div className="flex items-center justify-evenly h-[60px] relative border-b-gray-200 border-b-2">
+    <div className="flex items-center justify-evenly h-[60px] relative bg-white rounded-xl border-b-2">
+
+        <Image className="absolute left-[10px]" alt="category" width={25} height={25} src={`/${category}.svg`}/>
+
+       <div className="absolute right-[10px] hover:cursor-pointer">
+          <Image  alt="category" width={25} height={25} src={`/delete.svg`}/>
+       </div>
+        
+        
+       
       <div className="flex flex-col absolute left-[60px]">
         <p className="font-bold">
           {category.charAt(0).toUpperCase()}

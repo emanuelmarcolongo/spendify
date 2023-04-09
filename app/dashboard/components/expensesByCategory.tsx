@@ -27,16 +27,16 @@ export function ExpensesByCategory({ transactions }: transactionData) {
   categoryExpensesList.sort((a, b) => b.value - a.value)
 
   return (
-    <div className="flex w-full flex-col bg-white gap-10 justify-center items-center lg:w-[50%]">
-        <h1 className="text-xl font-semibold">
+    <div className="flex w-full flex-col bg-slate-500 rounded-xl gap-10 p-10 justify-center items-center lg:w-[50%]">
+        <h1 className="text-xl text-white font-semibold">
             Despesas por categoria: 
         </h1>
-      <ul className="bg-blue-300 w-full flex flex-col text-center">
+      <ul className="w-full flex flex-col text-center">
         {categoryExpensesList.map((expense) => (
       
-          <li  key={expense.category}>
-            <p>
-              {expense.category.charAt(0).toUpperCase()}{expense.category.slice(1)} : R$ {(expense.value / 100).toFixed(2)}
+          <li className=" text-white font-semibold" key={expense.category}>
+            <p >
+              {expense.category.charAt(0).toUpperCase()}{expense.category.slice(1)} - R$ {(expense.value / 100).toFixed(2)}
             </p>
             <div className="flex gap-9 items-center font-bold">
               <Progress value= {Math.round((expense.value * 100) / totalValue)}/>

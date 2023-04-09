@@ -1,7 +1,7 @@
 import './globals.css'
 import { Providers } from './providers'
 import { Metadata } from 'next';
-import { Poppins, Comfortaa} from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 
 
 export const metadata: Metadata = {
@@ -12,8 +12,7 @@ export const metadata: Metadata = {
   description: "Sua carteira centralizada, gerencie bem suas despesas e conquiste seus objetivos",
 };
 
-const mainFont = Poppins ({
-  weight: ["300", "400", '500', "600", "700"],
+const mainFont = Montserrat ({
   subsets: ['latin'],
   variable: '--mainFont',
 });
@@ -27,9 +26,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${mainFont.className} bg-slate-100`}>
-        <Providers>
-          
+      <body className={`${mainFont.className} bg-indigo-100`}>
+        <Providers>        
            {children}
         </Providers>
       </body>
