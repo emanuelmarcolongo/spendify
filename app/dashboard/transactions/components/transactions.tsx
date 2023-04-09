@@ -29,7 +29,7 @@ export default function Transactions ({transactions}: transactionData) {
     return ( 
         <div className="flex flex-col items-center align-middle">
           <div>
-          <h1 className="font-extrabold text-xl mb-[15px]">Minhas transações</h1>
+          <h1 className="font-bold text-xl mb-[15px]">Minhas transações</h1>
       <Select
           required
           onValueChange={(value) => setFilter(value)}
@@ -65,7 +65,7 @@ export default function Transactions ({transactions}: transactionData) {
 
 export function TransactionComponent ({type, value, category, description, createdAt}: Transaction): JSX.Element {
     return (
-        <div className="flex items-center justify-evenly w-[400px] h-[60px] relative border-b-gray-200 border-b-2">
+        <div className="flex items-center justify-evenly h-[60px] relative border-b-gray-200 border-b-2">
           <div className="flex flex-col absolute left-[60px]">
             <p className="font-bold">
               {category.charAt(0).toUpperCase()}
