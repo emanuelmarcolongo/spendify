@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     template: ' Spendify | %s',
   },
   description: "Sua carteira centralizada, gerencie bem suas despesas e conquiste seus objetivos",
+  icons: {
+    shortcut: '/logo.svg'
+  }
 };
 
 const mainFont = Montserrat ({

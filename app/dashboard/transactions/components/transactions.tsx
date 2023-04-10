@@ -39,7 +39,7 @@ export default function Transactions({ transactions }: transactionData) {
       : "";
 
   return (
-    <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full lg:px-32 rounded-xl">
+    <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full lg:px-32 rounded-xl px-10">
       <div className="items-center justify-center py-10 lg:flex">
         <h1 className="font-bold text-xl mb-[15px] lg:w-[50%]">
           Minhas transações
@@ -61,7 +61,7 @@ export default function Transactions({ transactions }: transactionData) {
         </div>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-1 ">
         {filteredTransactions &&
           filteredTransactions?.map((i) => {
             return (
@@ -112,7 +112,7 @@ export function TransactionComponent({
     return alert("Algo deu errado, tente novamente")
 }
 
-  const date = dayjs(createdAt).locale('pt-br').format("DD / MMM")
+  const date = dayjs(createdAt).locale('pt-br').format("DD - MMM")
   const hour = dayjs(createdAt).locale('pt-br').format("HH:mm ")
 
   return (

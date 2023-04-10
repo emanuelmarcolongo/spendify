@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "../../../components/ui/button";
+import Image from "next/image";
 
 export default function DashboardNavbar() {
 
@@ -23,8 +24,9 @@ export default function DashboardNavbar() {
                 
             </div>
 
-            <div className="text-white font-extrabold">
-                Spendify
+            <div className=" flex items-center">
+                <Image width={40} height={40} alt='spendifyLogo' src='/logo.svg'/>
+                <p className="text-black font-extrabold text-xl">Spendify</p>
             </div>
         </nav>
      
