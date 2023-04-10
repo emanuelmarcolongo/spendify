@@ -46,3 +46,13 @@ export async function getTransactions () {
         createdAt: i.createdAt.toISOString(),
       }));
 }
+
+export async function deleteTransaction (id: number) {
+    
+    return await prisma.transactions.delete({
+        where: {
+            id
+        }
+    })
+    
+}

@@ -1,6 +1,6 @@
 "use client";
 
-
+import { useRouter } from 'next/navigation';
 import { useState } from "react";
 import {
   Select,
@@ -16,6 +16,9 @@ import Image from "next/image";
 export default function Transactions({ transactions }: transactionData) {
 
   const [filter, setFilter] = useState("");
+
+ 
+ 
 
   const filteredTransactions =
     transactions !== undefined && transactions.length > 0
@@ -70,6 +73,7 @@ export default function Transactions({ transactions }: transactionData) {
                 description={i.description}
                 category={i.category}
                 createdAt={i.createdAt}
+              
               />
             );
           })}
@@ -79,19 +83,46 @@ export default function Transactions({ transactions }: transactionData) {
 }
 
 export function TransactionComponent({
+  id,
   type,
   value,
   category,
   description,
-  createdAt,
+  createdAt
 }: Transaction): JSX.Element {
+
+  const router = useRouter();
+
+  async function handleDelete (transactionId: number) {
+    const data = {
+        transactionId
+    }
+    const options = {
+        method: "DELETE",
+        body: JSON.stringify(data)
+    }
+
+    const response = await fetch("/api/transactions", options);
+
+    if (response.status === 200) {
+      return router.refresh()      
+    }
+    return alert("Algo deu errado, tente novamente")
+}
+
+ 
+
+
   return (
     <div className="flex items-center justify-evenly h-[60px] relative bg-white rounded-xl border-b-2">
 
         <Image className="absolute left-[10px]" alt="category" width={25} height={25} src={`/${category}.svg`}/>
 
        <div className="absolute right-[10px] hover:cursor-pointer">
-          <Image  alt="category" width={25} height={25} src={`/delete.svg`}/>
+          <button onClick={() => handleDelete(id)}>
+            <Image  alt="delete" width={25} height={25} src={`/delete.svg`}/>
+          </button>
+          
        </div>
         
         
