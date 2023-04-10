@@ -16,7 +16,6 @@ export default async function DashboardPage() {
     
         <div className="w-full mx-auto justify-between items-start  space-x-0 space-y-14 gap-15 p-10  bg-white bg-opacity-50 rounded-xl
          lg:max-w-[1280px] lg:flex lg:space-y-0 lg:space-x-10  ">
-         {/* @ts-expect-error Async Server Component */}
         <UserInfo transactions={data} />
         <ExpensesByCategory transactions={data}/>
         </div>)

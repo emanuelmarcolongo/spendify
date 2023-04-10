@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from "react";
 import {
   Select,
@@ -13,6 +14,7 @@ import Image from "next/image";
 
 
 export default function Transactions({ transactions }: transactionData) {
+
   const [filter, setFilter] = useState("");
 
   const filteredTransactions =
@@ -34,7 +36,7 @@ export default function Transactions({ transactions }: transactionData) {
 
   return (
     <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full lg:px-32 rounded-xl">
-      <div className=" p-10 items-center justify-center lg:flex">
+      <div className="items-center justify-center py-10 lg:flex">
         <h1 className="font-bold text-xl mb-[15px] lg:w-[50%]">
           Minhas transações
         </h1>
@@ -55,7 +57,7 @@ export default function Transactions({ transactions }: transactionData) {
         </div>
       </div>
 
-      <div>
+      <div className="space-y-1">
         {filteredTransactions &&
           filteredTransactions?.map((i) => {
             return (

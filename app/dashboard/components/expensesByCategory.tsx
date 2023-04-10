@@ -1,7 +1,6 @@
 import { transactionData } from "../../../lib/types";
 import { Progress } from "@/components/ui/progress"
 
-
 export function ExpensesByCategory({ transactions }: transactionData) {
   const categoryExpenses = new Map<string, number>();
   let totalValue = 0;

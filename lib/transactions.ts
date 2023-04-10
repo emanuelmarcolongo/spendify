@@ -29,7 +29,6 @@ export async function getTransactions () {
     if (!session?.user) return;
 
     const userId = parseInt(session?.user.id)
-    console.log(userId)
 
     const data = await prisma.transactions.findMany({
         where: {

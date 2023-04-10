@@ -10,8 +10,10 @@ export const metadata: Metadata = {
 export default function AddTransactionPage() {
     return (
 
-        <div className="h-screen w-screen flex justify-center items-center bg-slate-100">
-            <div className="shadow-xl sm:bg-white px-8 pb-8 pt-12 space-y-12 rounded-xl">
+        <div className="flex flex-col xl:max-w-[1280px] mx-auto bg-white bg-opacity-50
+        ">
+            <div className="shadow-xl sm:bg-white bg-white px-8 pb-8 pt-12 mx-auto space-y-12 rounded-xl">
+
                 <h1 className="font-semibold text-2xl">Adicionar Transação</h1>
                 <AddTransactionForm/>
             </div>

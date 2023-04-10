@@ -7,12 +7,9 @@ export const metadata: Metadata = {
     title: "Transações",
   };
 
-
-
 export default async function TransactionPage() {
 
-    const data = await getTransactions();   
-  
+    const data = await getTransactions();    
 
     return(
         <div className="flex flex-col xl:max-w-[1280px] mx-auto">
