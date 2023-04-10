@@ -1,5 +1,6 @@
 "use client";
 
+import dayjs from 'dayjs'
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
 import {
@@ -90,8 +91,9 @@ export function TransactionComponent({
   description,
   createdAt
 }: Transaction): JSX.Element {
-
+  require('dayjs/locale/pt-br');
   const router = useRouter();
+ 
 
   async function handleDelete (transactionId: number) {
     const data = {
@@ -110,8 +112,8 @@ export function TransactionComponent({
     return alert("Algo deu errado, tente novamente")
 }
 
- 
-
+  const date = dayjs(createdAt).locale('pt-br').format("DD / MMM")
+  const hour = dayjs(createdAt).locale('pt-br').format("HH:mm ")
 
   return (
     <div className="flex items-center justify-evenly h-[60px] relative bg-white rounded-xl border-b-2">
@@ -144,8 +146,10 @@ export function TransactionComponent({
           )}
         </p>
       </div>
-      <div className="date text-gray-500">
-        {createdAt.substring(8, 10)}/{createdAt.substring(5, 7)}{" "}
+      <div className="date text-gray-500 flex-col align-middle">
+        <p>{date}</p>
+        <p>{hour}</p>
+
       </div>
       {type === "saida" ? (
         <p className="absolute right-[60px] text-red-500">
