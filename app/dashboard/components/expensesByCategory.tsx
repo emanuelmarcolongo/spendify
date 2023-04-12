@@ -26,7 +26,7 @@ export function ExpensesByCategory({ transactions }: transactionData) {
   categoryExpensesList.sort((a, b) => b.value - a.value)
 
   return (
-    <div className="flex w-full flex-col bg-slate-500 rounded-xl gap-10 p-10 justify-center items-center lg:w-[50%]">
+    <div className="flex w-full mx-auto flex-col bg-slate-500 rounded-xl gap-10 p-10 justify-center items-center lg:w-[50%]">
         <h1 className="text-xl text-white font-extrabold">
             Despesas por categoria 
         </h1>

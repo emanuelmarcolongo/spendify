@@ -99,7 +99,7 @@ export default function Transactions({ transactions }: transactionData) {
         </button>
       </div>
 
-      <div className="space-y-1 ">
+      <div className="space-y-1 mb-11">
         {timeFilterTransactions &&
           timeFilterTransactions?.map((i) => {
             return (
