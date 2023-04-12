@@ -17,9 +17,10 @@ import Image from "next/image";
 export default function Transactions({ transactions }: transactionData) {
 
   const [filter, setFilter] = useState("");
+  const [time, setTime] = useState('month');
+  var weekOfYear = require('dayjs/plugin/weekOfYear')
+  dayjs.extend(weekOfYear)  
 
- 
- 
 
   const filteredTransactions =
     transactions !== undefined && transactions.length > 0
@@ -37,6 +38,19 @@ export default function Transactions({ transactions }: transactionData) {
         ? [...transactions].filter((i) => i.type === 'saida')
         : transactions
       : "";
+
+  const timeFilterTransactions: null | Transaction[] = 
+  filteredTransactions !== undefined && filteredTransactions.length > 0
+  ? time === "month"
+  ? [...filteredTransactions].filter((i) => dayjs(i.createdAt).month() === (dayjs().month() || dayjs().month()) )
+  : time === "week"
+  ? [...filteredTransactions].filter((i) =>  dayjs(i.createdAt).week() === dayjs().week())
+  : time === "3months"
+  ? [...filteredTransactions].filter((i) => dayjs(i.createdAt).month() >= dayjs().month() -2)
+  : filteredTransactions
+  : time === "year"
+  ? [...filteredTransactions].filter((i) => dayjs(i.createdAt).year() >= dayjs().year() -2)
+  : filteredTransactions;
 
   return (
     <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full lg:px-32 rounded-xl px-10">
@@ -61,9 +75,33 @@ export default function Transactions({ transactions }: transactionData) {
         </div>
       </div>
 
+      <div className='flex max-w-full justify-between p-10'>
+
+        <button onClick={() => setTime('all')} className={(time === 'all' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
+          Todas
+        </button>
+        
+        <button onClick={() => setTime('year')} className={(time === 'year' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
+          Esse ano
+        </button>
+
+
+        <button onClick={() => setTime('3months')} className={(time === '3months' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
+          Ultimos 3 mês
+        </button>
+
+        <button onClick={() => setTime('month')} className={(time === 'month' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
+          Esse mês
+        </button>
+
+        <button onClick={() => setTime('week')} className={(time === 'week' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
+          Essa semana
+        </button>
+      </div>
+
       <div className="space-y-1 ">
-        {filteredTransactions &&
-          filteredTransactions?.map((i) => {
+        {timeFilterTransactions &&
+          timeFilterTransactions?.map((i) => {
             return (
               <TransactionComponent
                 key={i.id}
@@ -152,12 +190,12 @@ export function TransactionComponent({
 
       </div>
       {type === "saida" ? (
-        <p className="absolute right-[60px] text-red-500">
-          $ -{(value / 100).toFixed(2)}
+        <p className="absolute right-[60px] font-bold  text-red-500">
+          -{(value / 100).toFixed(2)}
         </p>
       ) : (
-        <p className="absolute right-[60px] text-green-500">
-          $ +{(value / 100).toFixed(2)}
+        <p className="absolute right-[60px] font-bold text-green-500">
+          +{(value / 100).toFixed(2)}
         </p>
       )}
     </div>
