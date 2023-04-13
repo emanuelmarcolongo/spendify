@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${mainFont.className} bg-indigo-100`}>
+      <body className={`${mainFont.className} bg-[#E2E2E4]`}>
         <Providers>        
            {children}
         </Providers>

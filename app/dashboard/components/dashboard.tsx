@@ -47,15 +47,15 @@ export function DashboardComponent({ transactions }: transactionData) {
 
 export function TimeFilter({ time, setTime }: string | any) {
   return (
-    <div className="flex max-w-full lg:w-[50%] mx-auto justify-between space-x-5 overflow-hidden">
+    <div className="flex max-w-full font-bold xl:w-[50%] mx-auto justify-between space-x-5 overflow-hidden">
 
       <button
         onClick={() => setTime("all")}
         className={`
-        rounded-lg p-1
+        rounded-lg p-1 w-15 
           ${time === "all"
-            ? "bg-green-500"
-            : "bg-slate-400"}`
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
         }
       >
         Todas
@@ -64,10 +64,10 @@ export function TimeFilter({ time, setTime }: string | any) {
       <button
         onClick={() => setTime("year")}
         className={`
-        rounded-lg p-1
-          ${time === "all"
-            ? "bg-green-500"
-            : "bg-slate-400"}`
+        rounded-lg p-1 w-15
+          ${time === "year"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
         }
       >
         Esse ano
@@ -75,10 +75,11 @@ export function TimeFilter({ time, setTime }: string | any) {
 
       <button
         onClick={() => setTime("3months")}
-        className={
-          time === "3months"
-            ? "bg-green-500 rounded-lg p-2"
-            : "bg-slate-400 rounded-lg p-2"
+        className={`
+        rounded-lg p-1 w-15
+          ${time === "3months"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
         }
       >
         Ultimos 3 mês
@@ -87,10 +88,10 @@ export function TimeFilter({ time, setTime }: string | any) {
       <button
         onClick={() => setTime("month")}
         className={`
-        rounded-lg p-1
-          ${time === "all"
-            ? "bg-green-500"
-            : "bg-slate-400"}`
+        rounded-lg p-1 w-15
+          ${time === "month"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
         }
       >
         Esse mês
@@ -99,10 +100,10 @@ export function TimeFilter({ time, setTime }: string | any) {
       <button
         onClick={() => setTime("week")}
         className={`
-        rounded-lg p-1
-          ${time === "all"
-            ? "bg-green-500"
-            : "bg-slate-400"}`
+        rounded-lg p-1 w-15
+          ${time === "week"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
         }
       >
         Essa semana

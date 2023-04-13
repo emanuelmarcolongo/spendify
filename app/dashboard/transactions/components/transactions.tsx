@@ -53,7 +53,8 @@ export default function Transactions({ transactions }: transactionData) {
   : filteredTransactions;
 
   return (
-    <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full lg:px-32 rounded-xl px-10">
+    <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full rounded-xl px-10">
+      <div className='lg:w-1/2 mx-auto'>
       <div className="items-center justify-center py-10 lg:flex">
         <h1 className="font-bold text-xl mb-[15px] lg:w-[50%]">
           Minhas transações
@@ -94,34 +95,78 @@ export default function Transactions({ transactions }: transactionData) {
             );
           })}
       </div>
+      </div>
+      
     </div>
   );
 }
 
+
+
 export function TimeFilter ({time, setTime}) {
   return (
-    <div className='flex max-w-full justify-between p-10'>
+    <div className='flex max-w-full justify-between font-bold py-10'>
 
-        <button onClick={() => setTime('all')} className={(time === 'all' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
-          Todas
-        </button>
-        
-        <button onClick={() => setTime('year')} className={(time === 'year' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
-          Esse ano
-        </button>
+<button
+        onClick={() => setTime("all")}
+        className={`
+        rounded-lg p-1 w-15 
+          ${time === "all"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
+        }
+      >
+        Todas
+      </button>
 
+      <button
+        onClick={() => setTime("year")}
+        className={`
+        rounded-lg p-1 w-15
+          ${time === "year"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
+        }
+      >
+        Esse ano
+      </button>
 
-        <button onClick={() => setTime('3months')} className={(time === '3months' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
-          Ultimos 3 mês
-        </button>
+      <button
+        onClick={() => setTime("3months")}
+        className={`
+        rounded-lg p-1 w-15
+          ${time === "3months"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
+        }
+      >
+        Ultimos 3 mês
+      </button>
 
-        <button onClick={() => setTime('month')} className={(time === 'month' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
-          Esse mês
-        </button>
+      <button
+        onClick={() => setTime("month")}
+        className={`
+        rounded-lg p-1 w-15
+          ${time === "month"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
+        }
+      >
+        Esse mês
+      </button>
 
-        <button onClick={() => setTime('week')} className={(time === 'week' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
-          Essa semana
-        </button>
+      <button
+        onClick={() => setTime("week")}
+        className={`
+        rounded-lg p-1 w-15
+          ${time === "week"
+            ? "bg-[#27E0A6]"
+            : "bg-[#252525] text-white"}`
+        }
+      >
+        Essa semana
+      </button>
+
       </div>
 
   )
@@ -163,7 +208,7 @@ export function TransactionComponent({
   const hour = dayjs(createdAt).locale('pt-br').format("HH:mm ")
 
   return (
-    <div className="flex items-center justify-evenly h-[60px] relative bg-white rounded-xl border-b-2">
+    <div className="flex items-center justify-evenly text-sm xl:text-lg relative bg-white rounded-xl p-2 border-b-2">
 
         <Image className="absolute left-[10px]" alt="category" width={25} height={25} src={`/${category}.svg`}/>
 
@@ -199,11 +244,11 @@ export function TransactionComponent({
 
       </div>
       {type === "saida" ? (
-        <p className="absolute right-[60px] font-bold  text-red-500">
+        <p className="absolute right-[60px] font-bold  text-red-400">
           -{(value / 100).toFixed(2)}
         </p>
       ) : (
-        <p className="absolute right-[60px] font-bold text-green-500">
+        <p className="absolute right-[60px] font-bold text-[#27E0A6]">
           +{(value / 100).toFixed(2)}
         </p>
       )}

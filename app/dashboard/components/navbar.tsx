@@ -29,13 +29,13 @@ export default function DashboardNavbar() {
           <DropdownMenuLabel>Navegar para:</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <a href={"/dashboard"}>Dashboard</a>
+            <a className='w-full' href={"/dashboard"}>Dashboard</a>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <a href={"/dashboard/transactions"}>Transações</a>
+            <a className='w-full' href={"/dashboard/transactions"}>Transações</a>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <a href={"/dashboard/transactions/add"}>Adicionar Transação</a>
+            <Link className='w-full' href={"/dashboard/transactions/add"}>Adicionar Transação</Link>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
