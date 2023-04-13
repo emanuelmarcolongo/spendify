@@ -7,7 +7,7 @@ import { UserInfo } from "./userInfo";
 import { ExpensesByCategory } from "./expensesByCategory";
 
 export function DashboardComponent({ transactions }: transactionData) {
-  const [time, setTime] = useState<string>("week");
+  const [time, setTime] = useState<string>("month");
   var weekOfYear = require("dayjs/plugin/weekOfYear");
   dayjs.extend(weekOfYear);
 
@@ -35,28 +35,27 @@ export function DashboardComponent({ transactions }: transactionData) {
       : [];
 
   return (
-    <div
-      className="space-y-10 gap-10"
-    >
+    <div className="space-y-10 p-10 gap-10">
       <TimeFilter time={time} setTime={setTime} />
-      <div  className="space-y-10">
-      <UserInfo transactions={timeFilterTransactions} />
-      <ExpensesByCategory transactions={timeFilterTransactions} />
+      <div className="space-y-10">
+        <UserInfo transactions={timeFilterTransactions} />
+        <ExpensesByCategory transactions={timeFilterTransactions} />
       </div>
-      
     </div>
   );
 }
 
-function TimeFilter( {time,setTime}) {
+export function TimeFilter({ time, setTime }: string | any) {
   return (
-    <div className="flex max-w-full lg:w-[50%] mx-auto justify-between py-10">
+    <div className="flex max-w-full lg:w-[50%] mx-auto justify-between space-x-5 overflow-hidden">
+
       <button
         onClick={() => setTime("all")}
-        className={
-          time === "all"
-            ? "bg-green-500 rounded-lg p-2"
-            : "bg-slate-400 rounded-lg p-2"
+        className={`
+        rounded-lg p-1
+          ${time === "all"
+            ? "bg-green-500"
+            : "bg-slate-400"}`
         }
       >
         Todas
@@ -64,10 +63,11 @@ function TimeFilter( {time,setTime}) {
 
       <button
         onClick={() => setTime("year")}
-        className={
-          time === "year"
-            ? "bg-green-500 rounded-lg p-2"
-            : "bg-slate-400 rounded-lg p-2"
+        className={`
+        rounded-lg p-1
+          ${time === "all"
+            ? "bg-green-500"
+            : "bg-slate-400"}`
         }
       >
         Esse ano
@@ -86,10 +86,11 @@ function TimeFilter( {time,setTime}) {
 
       <button
         onClick={() => setTime("month")}
-        className={
-          time === "month"
-            ? "bg-green-500 rounded-lg p-2"
-            : "bg-slate-400 rounded-lg p-2"
+        className={`
+        rounded-lg p-1
+          ${time === "all"
+            ? "bg-green-500"
+            : "bg-slate-400"}`
         }
       >
         Esse mês
@@ -97,10 +98,11 @@ function TimeFilter( {time,setTime}) {
 
       <button
         onClick={() => setTime("week")}
-        className={
-          time === "week"
-            ? "bg-green-500 rounded-lg p-2"
-            : "bg-slate-400 rounded-lg p-2"
+        className={`
+        rounded-lg p-1
+          ${time === "all"
+            ? "bg-green-500"
+            : "bg-slate-400"}`
         }
       >
         Essa semana

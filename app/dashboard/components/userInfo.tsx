@@ -1,16 +1,11 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { transactionData } from "../../../lib/types";
 import { TransactionComponent } from "../transactions/components/transactions";
 
-
-
 export function UserInfo({ transactions }: transactionData) {
-
-
-  const { userBalance, income, spent } = calculateUserBalance({transactions});
-
+  const { userBalance, income, spent } = calculateUserBalance({ transactions });
 
   return (
     <div className="flex mx-auto space-y-2 gap-10 flex-col justify-center items-center lg:w-[50%]">
@@ -63,7 +58,7 @@ export function UserInfo({ transactions }: transactionData) {
   );
 }
 
-function calculateUserBalance({transactions}: transactionData) {
+function calculateUserBalance({ transactions }: transactionData) {
   let userBalance = 0;
   let income = 0;
   let spent = 0;

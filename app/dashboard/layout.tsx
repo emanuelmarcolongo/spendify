@@ -7,10 +7,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='indigo-100 flex flex-col'>
+      <body>
           <DashboardNavbar/>
            {children}
-
       </body>
     </html>
   )

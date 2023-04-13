@@ -75,7 +75,32 @@ export default function Transactions({ transactions }: transactionData) {
         </div>
       </div>
 
-      <div className='flex max-w-full justify-between p-10'>
+    <TimeFilter time={time} setTime={setTime} />
+
+      <div className="space-y-1 mb-11">
+        {timeFilterTransactions &&
+          timeFilterTransactions?.map((i) => {
+            return (
+              <TransactionComponent
+                key={i.id}
+                id={i.id}
+                userId={i.userId}
+                type={i.type}
+                value={i.value}
+                description={i.description}
+                category={i.category}
+                createdAt={i.createdAt}
+              />
+            );
+          })}
+      </div>
+    </div>
+  );
+}
+
+export function TimeFilter ({time, setTime}) {
+  return (
+    <div className='flex max-w-full justify-between p-10'>
 
         <button onClick={() => setTime('all')} className={(time === 'all' ? 'bg-green-500 rounded-lg p-2' : 'bg-slate-400 rounded-lg p-2')}>
           Todas
@@ -99,26 +124,10 @@ export default function Transactions({ transactions }: transactionData) {
         </button>
       </div>
 
-      <div className="space-y-1 mb-11">
-        {timeFilterTransactions &&
-          timeFilterTransactions?.map((i) => {
-            return (
-              <TransactionComponent
-                key={i.id}
-                id={i.id}
-                userId={i.userId}
-                type={i.type}
-                value={i.value}
-                description={i.description}
-                category={i.category}
-                createdAt={i.createdAt}
-              
-              />
-            );
-          })}
-      </div>
-    </div>
-  );
+  )
+
+  
+
 }
 
 export function TransactionComponent({
