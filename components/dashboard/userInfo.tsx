@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { transactionData } from "../../../lib/types";
-import { TransactionComponent } from "../transactions/components/transactions";
+import { transactionData } from "../../lib/types";
+import { TransactionComponent } from "./transactions/transactionComponent";
 
 export function UserInfo({ transactions }: transactionData) {
   const { userBalance, income, spent } = calculateUserBalance({ transactions });
