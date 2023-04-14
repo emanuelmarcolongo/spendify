@@ -29,9 +29,9 @@ export function ExpensesByCategory({ transactions }: transactionData) {
     <>
       <div className="flex w-full mx-auto flex-col text-black rounded-xl text-start gap-10 justify-center items-center lg:w-[50%]">
         <h1 className="text-xl text-black flex-start font-bold">Categorias</h1>
-        <div className="w-full flex flex-col space-y-2 text-start">
+        <ul className="w-full flex flex-col space-y-2 text-start">
           {categoryExpensesList.map((expense) => (
-            <div
+            <li
               className=" font-semibold text-white bg-darkGray ring-2 ring-primary drop-shadow-xl p-2 space-y-2 rounded-xl"
               key={expense.category}
             >
@@ -41,16 +41,19 @@ export function ExpensesByCategory({ transactions }: transactionData) {
                   {expense.category.slice(1)}
                 </p>
                 <p>{Math.round((expense.value * 100) / totalValue)}%</p>
-                <p className="ml-6">R$ {(expense.value / 100).toFixed(2)}</p>
+                <p className="ml-6">
+                  
+                  R$ {(expense.value / 100).toFixed(2)}
+                </p>
               </div>
               <div className="flex gap-9 px-5 items-center font-bold">
                 <Progress
                   value={Math.round((expense.value * 100) / totalValue)}
                 />
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </>
   );
