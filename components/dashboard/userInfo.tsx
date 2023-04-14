@@ -26,18 +26,15 @@ export function UserInfo({ transactions }: transactionData) {
         </div>
       </div>
 
-
       <div className="flex justify-between w-full">
-          <p className="text-xl font-bold">Ultimas transações</p>
-          <Link href={"/dashboard/transactions"}>
-            <p className="text-primary text-xl font-bold hover:underline">
-              Ver todas
-            </p>
-          </Link>
+        <p className="text-xl font-bold">Ultimas transações</p>
+        <Link href={"/dashboard/transactions"}>
+          <p className="text-primary text-xl font-bold hover:underline">
+            Ver todas
+          </p>
+        </Link>
       </div>
       <div className="max-h-[350px] w-full space-y-1.5 rounded-xl">
-        
-
         <div className="max-h-[300px] border-2 border-darkGray rounded-xl overflow-hidden space-y-1">
           {transactions &&
             transactions?.map((i) => {
