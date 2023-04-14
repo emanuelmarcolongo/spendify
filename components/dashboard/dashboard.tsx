@@ -36,7 +36,7 @@ export function DashboardComponent({ transactions }: transactionData) {
       : [];
 
   return (
-    <div className="space-y-10 p-10 gap-10">
+    <div className="space-y-10 p-10 bg-white my-10 rounded-xl">
       <div className="lg:w-[50%] mx-auto">
         <TimeFilter time={time} setTime={setTime} />
       </div>

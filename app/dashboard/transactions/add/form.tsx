@@ -61,8 +61,8 @@ export default function AddTransactionForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-8 w-full sm:w-[400px]">
-      <div className="grid w-full gap-2 items-center">
+    <form onSubmit={onSubmit} className="space-y-8 font-bold w-full sm:w-[400px]">
+      <div className="grid w-full gap-2  items-center">
         <Label htmlFor="value">Valor</Label>
         <Input
           required

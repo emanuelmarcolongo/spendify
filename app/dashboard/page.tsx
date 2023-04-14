@@ -10,7 +10,7 @@ export default async function DashboardPage() {
   const data = await getTransactions();
 
   return (
-    <div className="bg-white bg-opacity-50 lg:max-w-[1280px] mx-auto">
+    <div className="bg-[#E2E2E4] bg-opacity-30 lg:max-w-[1280px] mx-auto">
       <DashboardComponent transactions={data} />
     </div>
       

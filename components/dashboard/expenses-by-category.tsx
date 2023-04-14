@@ -32,7 +32,7 @@ export function ExpensesByCategory({ transactions }: transactionData) {
         <ul className="w-full flex flex-col space-y-2 text-start">
           {categoryExpensesList.map((expense) => (
             <li
-              className=" font-semibold text-white bg-[#252525] p-2 space-y-2 rounded-xl"
+              className=" font-semibold text-white bg-darkGray ring-2 ring-primary drop-shadow-xl p-2 space-y-2 rounded-xl"
               key={expense.category}
             >
               <div className="flex justify-between px-5">

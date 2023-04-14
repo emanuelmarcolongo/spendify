@@ -9,8 +9,8 @@ export function TimeFilter ({time, setTime}: {time: string, setTime: Dispatch<Se
           className={`
           rounded-lg p-1 w-15 
             ${time === "all"
-              ? "bg-[#27E0A6]"
-              : "bg-[#252525] text-white"}`
+              ? "bg-primary ring-2 ring-black"
+              : "bg-darkGray text-white"}`
           }
         >
           Todas
@@ -21,8 +21,8 @@ export function TimeFilter ({time, setTime}: {time: string, setTime: Dispatch<Se
           className={`
           rounded-lg p-1 w-15
             ${time === "year"
-              ? "bg-[#27E0A6]"
-              : "bg-[#252525] text-white"}`
+              ? "bg-primary ring-2 ring-black"
+              : "bg-darkGray text-white"}`
           }
         >
           Esse ano
@@ -33,11 +33,11 @@ export function TimeFilter ({time, setTime}: {time: string, setTime: Dispatch<Se
           className={`
           rounded-lg p-1 w-15
             ${time === "3months"
-              ? "bg-[#27E0A6]"
-              : "bg-[#252525] text-white"}`
+              ? "bg-primary ring-2 ring-black"
+              : "bg-darkGray text-white"}`
           }
         >
-          Ultimos 3 mês
+          Ultimos 3 meses
         </button>
   
         <button
@@ -45,8 +45,8 @@ export function TimeFilter ({time, setTime}: {time: string, setTime: Dispatch<Se
           className={`
           rounded-lg p-1 w-15
             ${time === "month"
-              ? "bg-[#27E0A6]"
-              : "bg-[#252525] text-white"}`
+              ? "bg-primary ring-2 ring-black"
+              : "bg-darkGray text-white"}`
           }
         >
           Esse mês
@@ -57,8 +57,8 @@ export function TimeFilter ({time, setTime}: {time: string, setTime: Dispatch<Se
           className={`
           rounded-lg p-1 w-15
             ${time === "week"
-              ? "bg-[#27E0A6]"
-              : "bg-[#252525] text-white"}`
+              ? "bg-primary ring-2 ring-black"
+              : "bg-darkGray text-white"}`
           }
         >
           Essa semana

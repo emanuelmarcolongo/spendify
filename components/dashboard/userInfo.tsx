@@ -9,18 +9,18 @@ export function UserInfo({ transactions }: transactionData) {
 
   return (
     <div className="flex mx-auto space-y-2 gap-10 flex-col justify-center items-center lg:w-[50%]">
-      <div className="rounded-xl w-full h-[150px] flex flex-col items-center justify-center p-10 space-y-2 bg-[#27E0A6] text-black  font-extrabold text-lg">
+      <div className="rounded-xl w-full h-[150px] flex flex-col items-center justify-center p-10 space-y-2 ring-2 ring-black bg-primary text-black  font-extrabold text-lg">
         <p>Saldo</p>
         <p>R$ {userBalance}</p>
       </div>
 
       <div className="flex items-center w-full justify-around h-[150px] gap-10">
-        <div className="rounded-xl w-full flex flex-col h-[150px] p-10 space-y-2 bg-[#51A5A8] text-black  font-extrabold text-lg">
+        <div className="rounded-xl w-full flex flex-col h-[150px] p-10 space-y-2 ring-2 ring-black bg-secondary text-black  font-extrabold text-lg">
           <p>Entrada</p>
           <p> R$ {income}</p>
         </div>
 
-        <div className="rounded-xl w-full h-[150px] flex flex-col p-10 space-y-2 bg-[#51A5A8] text-black  font-extrabold text-lg">
+        <div className="rounded-xl w-full ring-2 ring-black h-[150px] flex flex-col p-10 space-y-2 bg-secondary text-black  font-extrabold text-lg">
           <p>Saída</p>
           <p>R$ {spent}</p>
         </div>
@@ -30,7 +30,7 @@ export function UserInfo({ transactions }: transactionData) {
       <div className="flex justify-between w-full">
           <p className="text-xl font-bold">Ultimas transações</p>
           <Link href={"/dashboard/transactions"}>
-            <p className="text-[#27E0A6] text-xl font-bold hover:underline">
+            <p className="text-primary text-xl font-bold hover:underline">
               Ver todas
             </p>
           </Link>
@@ -38,7 +38,7 @@ export function UserInfo({ transactions }: transactionData) {
       <div className="max-h-[350px] w-full space-y-1.5 rounded-xl">
         
 
-        <div className="max-h-[300px] overflow-hidden space-y-1">
+        <div className="max-h-[300px] border-2 border-darkGray rounded-xl overflow-hidden space-y-1">
           {transactions &&
             transactions?.map((i) => {
               return (

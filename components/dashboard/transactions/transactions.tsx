@@ -53,10 +53,10 @@ export default function Transactions({ transactions }: transactionData) {
   : filteredTransactions;
 
   return (
-    <div className="flex flex-col w-full mx-auto bg-white bg-opacity-50 lg:max-w-full rounded-xl px-10">
+    <div className="flex flex-col w-full mx-auto bg-white lg:max-w-full rounded-xl p-10">
       <div className='lg:w-1/2 mx-auto'>
-      <div className="items-center justify-center py-10 lg:flex">
-        <h1 className="font-bold text-xl mb-[15px] lg:w-[50%]">
+      <div className="items-center justify-center rounded-xl my-10 lg:flex">
+        <h1 className="font-bold text-xl lg:w-[50%]">
           Minhas transações
         </h1>
         <div className="lg:w-[50%]">
@@ -78,7 +78,7 @@ export default function Transactions({ transactions }: transactionData) {
 
     <TimeFilter time={time} setTime={setTime} />
 
-      <div className="space-y-1 mb-11">
+      <div className="space-y-1 p-2 mb-11 border-2 border-darkGray rounded-xl">
         {timeFilterTransactions &&
           timeFilterTransactions?.map((i) => {
             return (

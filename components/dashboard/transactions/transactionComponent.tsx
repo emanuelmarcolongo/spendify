@@ -32,12 +32,12 @@ export function TransactionComponent({
       }
       return alert("Algo deu errado, tente novamente")
   }
-  
+
     const date = dayjs(createdAt).locale('pt-br').format("DD - MMM")
     const hour = dayjs(createdAt).locale('pt-br').format("HH:mm ")
   
     return (
-      <div className="flex items-center justify-evenly text-sm xl:text-lg relative bg-white rounded-xl p-2 border-b-2">
+      <div className="flex items-center justify-evenly text-sm xl:text-lg relative bg-white p-2 drop-shadow-lg">
   
           <Image className="absolute left-[10px]" alt="category" width={25} height={25} src={`/${category}.svg`}/>
   
@@ -77,7 +77,7 @@ export function TransactionComponent({
             -{(value / 100).toFixed(2)}
           </p>
         ) : (
-          <p className="absolute right-[60px] font-bold text-[#27E0A6]">
+          <p className="absolute right-[60px] font-bold text-primary">
             +{(value / 100).toFixed(2)}
           </p>
         )}
