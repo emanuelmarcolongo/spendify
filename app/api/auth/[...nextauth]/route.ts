@@ -4,9 +4,6 @@ import NextAuth, { type NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export const authOptions: NextAuthOptions = {
-  pages: {
-    signIn: '/login'
-  },
   session: {
     strategy: 'jwt'
   },
