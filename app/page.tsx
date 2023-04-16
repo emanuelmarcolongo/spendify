@@ -1,14 +1,20 @@
+import { getServerSession } from "next-auth"
 import HomeNavbar from "../components/home/navbar"
 import Link from "next/link"
+import { authOptions } from "./api/auth/[...nextauth]/route"
 
-export default function Home() {
 
+
+export default async function Home() {
+
+  const session = await getServerSession(authOptions);
   
 
   return (
     <main className=''>
+      
       <HomeNavbar></HomeNavbar>
-      <a href={'/dashboard'}>Clique aqui e vá pelo link</a>
+      <Link href={'/dashboard'}>Clique aqui e vá pelo link</Link>
     
      
     </main>

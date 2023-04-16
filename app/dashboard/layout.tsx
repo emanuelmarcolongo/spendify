@@ -1,4 +1,4 @@
-import DashboardNavbar from "../../components/dashboard/navbar"
+import DashboardNavbar from "../../components/dashboard/Navbar"
 
 export default function RootLayout({
   children,

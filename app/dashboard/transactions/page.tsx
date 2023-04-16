@@ -12,7 +12,7 @@ export default async function TransactionPage() {
     const data = await getTransactions();    
 
     return(
-        <div className="flex flex-col space-y-10 p-10 xl:max-w-[1280px] mx-auto">
+        <div className="bg-[#E2E2E4] bg-opacity-30 py-10 lg:max-w-[1280px] mx-auto">
             <Transactions transactions={data}/>
         </div>
     )
