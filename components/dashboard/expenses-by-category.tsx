@@ -13,7 +13,7 @@ export function ExpensesByCategory({ transactions }: transactionData) {
         categoryExpenses.set(category, value);
         totalValue += value;
       } else if (categoryExpenses.has(category)) {
-        categoryExpenses.set(category, categoryExpenses.get(category) + value);
+        categoryExpenses.set(category, (categoryExpenses.get(category))! + value);
         totalValue += value;
       }
     }
