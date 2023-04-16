@@ -9,8 +9,12 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
-export default function DashboardNavbar() {
+export default async function HomeNavbar() {
+  const session = await getServerSession(authOptions);
+
   return (
     <div className="w-full bg-primary mx-auto drop-shadow-2xl">
       <div className="mx-auto lg:max-w-[1280px] px-10">
@@ -19,7 +23,7 @@ export default function DashboardNavbar() {
                  "
         >
           <div className="md:hidden ">
-            <DropdownMenu >
+            <DropdownMenu>
               <DropdownMenuTrigger>
                 <Image
                   alt={"opções de navegação"}
@@ -32,34 +36,63 @@ export default function DashboardNavbar() {
                 <DropdownMenuLabel>Navegar para:</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <a className="w-full" href={"/dashboard"}>
-                    Dashboard
+                  <a className="w-full" href={"/"}>
+                    Home
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <a className="w-full" href={"/dashboard/transactions"}>
-                    Transações
+                  <a className="w-full" href={"/register"}>
+                    Cadastro
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link className="w-full" href={"/dashboard/transactions/add"}>
-                    Adicionar Transação
+                  <Link className="w-full" href={"/login"}>
+                    Login
                   </Link>
                 </DropdownMenuItem>
+
+                {session?.user && (
+                  <DropdownMenuItem>
+                    <Link className="w-full" href={"/dashboard"}>
+                      Dashboard
+                    </Link>
+                  </DropdownMenuItem>
+                )}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
 
           <div className="hidden md:inline-flex items-center md:w-[500px]  justify-between">
-            <a href={"/dashboard"}>
-              <Button className="">Dashboard</Button>
-            </a>
-            <a href={"/dashboard/transactions"}>
-              <Button className="">Transações</Button>
-            </a>
-            <a href={"/dashboard/transactions/add"}>
-              <Button className="">Adicionar</Button>
-            </a>
+            {!session?.user && (
+              <>
+                <a href={"/"}>
+                  <Button className="hover:bg-opacity-40">Home</Button>
+                </a>
+                <a href={"/register"}>
+                  <Button className="hover:bg-opacity-40">Cadastro</Button>
+                </a>
+                <a href={"/login"}>
+                  <Button className="hover:bg-opacity-40">Login</Button>
+                </a>
+              </>
+            )}
+
+            {session?.user && (
+              <>
+                <a href={"/"}>
+                  <Button className="hover:bg-opacity-40">Home</Button>
+                </a>
+                <a href={"/dashboard"}>
+                  <Button className="hover:bg-opacity-40">Dashboard</Button>
+                </a>
+                <a href={"/register"}>
+                  <Button className="hover:bg-opacity-40">Cadastro</Button>
+                </a>
+                <a href={"/login"}>
+                  <Button className="hover:bg-opacity-40">Login</Button>
+                </a>
+              </>
+            )}
           </div>
 
           <div className=" flex items-center">
