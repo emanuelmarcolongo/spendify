@@ -1,9 +1,10 @@
 import HomeContent from "@/components/home/Content"
 import HomeNavbar from "../components/home/Navbar"
-import Link from "next/link"
+import type { Metadata } from "next";
 
-
-
+export const metadata: Metadata = {
+  title: "Spendify | Home",
+};
 
 export default function Home() {
 

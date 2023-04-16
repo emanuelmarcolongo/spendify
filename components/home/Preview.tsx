@@ -21,7 +21,7 @@ export function PreviewImage() {
         </div>
 
         <div className="flex justify-center">
-          <div className="border-8 border-b-[20px] min-w-[150px] max-w-[250px] drop-shadow-xl  rounded-3xl border-opacity-50 p-4  border-black">
+          <div className="border-8 border-b-[20px]  min-w-[150px] max-w-[250px] drop-shadow-xl  rounded-3xl border-opacity-50 border-black">
             <Image
               className="rounded-3xl"
               alt="appImage"
