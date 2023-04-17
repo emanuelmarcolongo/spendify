@@ -29,16 +29,16 @@ export default function LoginForm() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("")
-
+    
     try {
       const res = await signIn("credentials", {
         redirect: false,
         email: form.email,
         password: form.password,
-        callbackUrl: `/dashboard`
+        callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`
       });
       if (!res?.error) {
-        router.push(`/dashboard`)
+        router.push(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`)
       } else {
         setError('Email ou senha inválidos')
       }
