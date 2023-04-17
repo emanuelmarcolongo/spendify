@@ -28,6 +28,12 @@ export async function POST(req: Request) {
     const session: sessionWithAuthOp | null = await getServerSession(authOptions);
 
     try {
+
+        if (!session) {
+            return NextResponse.json('Sessão não encontrada', {status: 401})
+        }
+
+
         if (!session?.user) {
             return NextResponse.json('Não autorizado, faça login e tente novamente', {status: 401})
     }
