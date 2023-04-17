@@ -30,18 +30,15 @@ export default function LoginForm() {
     e.preventDefault();
     setError("")
 
-    console.log(process.env.NEXT_PUBLIC_NEXTAUTH_URL)
-    console.log(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`);
-
     try {
       const res = await signIn("credentials", {
         redirect: false,
         email: form.email,
         password: form.password,
-        callbackUrl: `https://https://spendify-app.vercel.app/dashboard`
+        callbackUrl: `https://spendify-app.vercel.app/dashboard`
       });
       if (!res?.error) {
-        router.push(`https://https://spendify-app.vercel.app/dashboard`)
+        router.push(`https://spendify-app.vercel.app/dashboard`)
       } else {
         setError('Email ou senha inválidos')
       }
