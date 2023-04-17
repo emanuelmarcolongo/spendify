@@ -35,10 +35,10 @@ export default function LoginForm() {
         redirect: false,
         email: form.email,
         password: form.password,
-        callbackUrl: `https://spendify-app.vercel.app/dashboard`
+        callbackUrl: `/dashboard`
       });
       if (!res?.error) {
-        router.push(`https://spendify-app.vercel.app/dashboard`)
+        router.push(`/dashboard`)
       } else {
         setError('Email ou senha inválidos')
       }
