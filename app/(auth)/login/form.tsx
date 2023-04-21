@@ -29,19 +29,16 @@ export default function LoginForm() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("")
-
-    console.log(process.env.NEXT_PUBLIC_NEXTAUTH_URL)
-    console.log(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`);
-
+    
     try {
       const res = await signIn("credentials", {
         redirect: false,
         email: form.email,
         password: form.password,
-        callbackUrl: `https://https://spendify-app.vercel.app/dashboard`
+        callbackUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`
       });
       if (!res?.error) {
-        router.push(`https://https://spendify-app.vercel.app/dashboard`)
+        router.push(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/dashboard`)
       } else {
         setError('Email ou senha inválidos')
       }
