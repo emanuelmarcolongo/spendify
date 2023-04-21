@@ -6,12 +6,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 
 
 export default function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
   const [error, setError] = useState('')
   const [form, setForm] = useState({
     email: "",
@@ -35,10 +37,10 @@ export default function LoginForm() {
         redirect: false,
         email: form.email,
         password: form.password,
-        callbackUrl: `/dashboard`
+        callbackUrl
       });
       if (!res?.error) {
-        router.push(`/dashboard`)
+        router.push(callbackUrl)
       } else {
         setError('Email ou senha inválidos')
       }
