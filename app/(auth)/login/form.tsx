@@ -6,14 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 
 
 export default function LoginForm() {
   const router = useRouter();
-  const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
+  const callbackUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL + "/dashboard";
   const [error, setError] = useState('')
   const [form, setForm] = useState({
     email: "",
@@ -31,6 +30,8 @@ export default function LoginForm() {
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError("")
+
+    console.log(callbackUrl)
 
     try {
       const res = await signIn("credentials", {
