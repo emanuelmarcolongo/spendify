@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
   const router = useRouter();
-  const callbackUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL + "/dashboard";
+  const callbackUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
   const [error, setError] = useState('')
   const [form, setForm] = useState({
     email: "",
@@ -32,7 +32,7 @@ export default function LoginForm() {
     setError("")
 
     console.log(callbackUrl)
-
+    
     try {
       const res = await signIn("credentials", {
         redirect: false,
@@ -41,7 +41,7 @@ export default function LoginForm() {
         callbackUrl
       });
       if (!res?.error) {
-        router.push(callbackUrl)
+        router.push('/dashboard')
       } else {
         setError('Email ou senha inválidos')
       }
