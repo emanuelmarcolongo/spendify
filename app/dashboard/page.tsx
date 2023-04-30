@@ -12,13 +12,10 @@ export default async function DashboardPage() {
 
   return (
     <>
-    <DashboardNavbar/>
-    <div className="bg-[#E2E2E4] bg-opacity-30 lg:max-w-[1280px] mx-auto">
-      
-      <DashboardComponent transactions={data} />
-    </div>
+      <DashboardNavbar />
+      <div className="bg-[#E2E2E4] bg-opacity-30 lg:max-w-[1280px] mx-auto">
+        <DashboardComponent transactions={data} />
+      </div>
     </>
-    
-      
   );
 }
