@@ -1,10 +1,12 @@
-# Spendify - Gestor de Transações
+# Spendify 💸
 
-O Spendify é um aplicativo de gestão de transações que permite aos usuários inserir suas transações financeiras, classificálas como entrada ou saída e categorizá-las, para então obter uma visão geral de suas finanças. O aplicativo oferece gráficos de despesas por categoria, bem como filtros de tempo para visualizar transações em um período específico, como a última semana ou mês.
+O Spendify é um aplicativo de gestão de transações que permite aos usuários inserir suas transações financeiras, classificá-las como entrada ou saída e categorizá-las, para então obter uma visão geral de suas finanças. O aplicativo oferece gráficos de despesas por categoria, bem como filtros de tempo para visualizar transações em um período específico, como a última semana ou mês.
 
-O Spendify foi desenvolvido utilizando o framework Next.js para o front-end e as API routes.
+Para aqueles que possuem várias contas bancárias / dinheiro na carteira / investimentos... é uma ótima opção para centralizar os gastos e manter um controle de suas finanças de forma simples.
 
-## Motivação: 
+O Spendify foi desenvolvido utilizando o framework Next.js para o front-end e as API routes que o mesmo oferece.
+
+## Motivação 🔥 
 
 Este projeto foi criado como parte do meu aprendizado no desenvolvimento web, com o objetivo de explorar o framework Next.js e suas funcionalidades.
 
@@ -12,7 +14,7 @@ Durante o processo de desenvolvimento, pude aplicar conceitos e técnicas de pro
 
 Apesar dos obstáculos, estou satisfeito com o resultado final do projeto. Ele me permitiu consolidar meus conhecimentos em React e ampliar minha compreensão sobre a criação de aplicações web escaláveis e de alta performance.
 
-## Preview: 
+## Preview 🎞️
 
 <div style="text-align:center; width: 100%; margin: 0; padding: 0;">
 <img  src="https://github.com/emanuelmarcolongo/spendify/blob/main/public/imgs/categories.png?raw=true" alt="Imagem 2" style="display:inline-block; width: 170px; height: 350px;">
@@ -23,17 +25,17 @@ Apesar dos obstáculos, estou satisfeito com o resultado final do projeto. Ele m
 Confira o deploy:
 https://spendify-six.vercel.app/
 
-## Funcionalidades
+## Funcionalidades 🚀
 
-- Cadastro e login de usuários
-- Adição de transações financeiras com categorias personalizadas
-- Gráficos de despesas por categoria
-- Filtros de tempo para visualização de transações em períodos específicos
-- Responsividade para diferentes dispositivos
-- Autenticação
+- Cadastro e login de usuários 🔐
+- Adição de transações financeiras com categorias personalizadas 💰
+- Gráficos de despesas por categoria 📊
+- Filtros de tempo para visualização de transações em períodos específicos ⏱️
+- Responsividade para diferentes dispositivos 📱 🖥️ 💻
 
-## Tecnologias utilizadas
 
+## Tecnologias utilizadas 🛠️
+ 
 <div style="display: inline_block"><br>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt:"reactJs"/>
   <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt:"NextJs"/>
@@ -51,7 +53,7 @@ https://spendify-six.vercel.app/
 - PostgreSQL
 - Prisma ORM
 
-## Instalação
+## Instalação 💻
 
 Para instalar e executar o Spendify em sua máquina local, siga os seguintes passos:
 
@@ -81,7 +83,7 @@ npm run dev
 ```
 5. Acesse `http://localhost:3000` em seu navegador para abrir o aplicativo.
 
-## Contato:
+## Contato ✉️
 
 Gostou do projeto, tem alguma dica ou sugestão? 
 Me procure no LinkedIn: https://www.linkedin.com/in/emanuelmarcolongo/
