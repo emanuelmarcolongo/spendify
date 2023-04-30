@@ -28,7 +28,7 @@ export function ExpensesByCategory({ transactions }: transactionData) {
   return (
     <>
       <div className="flex w-full mx-auto flex-col text-black rounded-xl text-start gap-10 justify-center items-center lg:w-[50%]">
-        <h1 className="text-xl text-black flex-start font-bold">Categorias</h1>
+        <h1 className="text-xl text-black flex-start font-bold self-start">Gastos por Categorias</h1>
         <ul className="w-full flex flex-col space-y-2 text-start">
           {categoryExpensesList.map((expense) => (
             <li
