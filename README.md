@@ -1,38 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Spendify - Gestor de Transações
 
-## Getting Started
+O Spendify é um aplicativo de gestão de transações que permite aos usuários inserir suas transações financeiras, classificálas como entrada ou saída e categorizá-las, para então obter uma visão geral de suas finanças. O aplicativo oferece gráficos de despesas por categoria, bem como filtros de tempo para visualizar transações em um período específico, como a última semana ou mês.
 
-First, run the development server:
+O Spendify foi desenvolvido utilizando o framework Next.js para o front-end e as API routes.
+
+## Motivação: 
+
+Este projeto foi criado como parte do meu aprendizado no desenvolvimento web, com o objetivo de explorar o framework Next.js e suas funcionalidades.
+
+Durante o processo de desenvolvimento, pude aplicar conceitos e técnicas de programação em React para criar uma aplicação web simples, porém toda planejada por mim. O principal desafio foi adaptar-me à estrutura do Next.js e aprender a utilizar seus recursos, como o server-side rendering, a geração de páginas estáticas e o roteamento dinâmico.
+
+Apesar dos obstáculos, estou satisfeito com o resultado final do projeto. Ele me permitiu consolidar meus conhecimentos em React e ampliar minha compreensão sobre a criação de aplicações web escaláveis e de alta performance.
+
+## Preview: 
+
+<div style="text-align:center; width: 100%; margin: 0; padding: 0;">
+<img  src="https://github.com/emanuelmarcolongo/spendify/blob/main/public/imgs/categories.png?raw=true" alt="Imagem 2" style="display:inline-block; width: 170px; height: 350px;">
+  <img  src="https://github.com/emanuelmarcolongo/spendify/blob/main/public/imgs/addTransaction.png?raw=true" alt="Imagem 1" style="display:inline-block; width: 190px; height: 350px;">
+  
+</div>
+
+Confira o deploy:
+https://spendify-six.vercel.app/
+
+## Funcionalidades
+
+- Cadastro e login de usuários
+- Adição de transações financeiras com categorias personalizadas
+- Gráficos de despesas por categoria
+- Filtros de tempo para visualização de transações em períodos específicos
+- Responsividade para diferentes dispositivos
+- Autenticação
+
+## Tecnologias utilizadas
+
+<div style="display: inline_block"><br>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt:"reactJs"/>
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt:"NextJs"/>
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt:"tailwindCss"/>
+   <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt:"postgres"/>
+</div>
+
+
+- React
+- Next.js
+- Next-Auth (autenticação)
+- TypeScript
+- JavaScript
+- Tailwind CSS
+- PostgreSQL
+- Prisma ORM
+
+## Instalação
+
+Para instalar e executar o Spendify em sua máquina local, siga os seguintes passos:
+
+Requisitos: Node / Postgres
+
+1. Clone o repositório do projeto do GitHub em sua máquina local.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone https://github.com/emanuelmarcolongo/spendify
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Abra o terminal na pasta do projeto e execute o comando `npm install` para instalar todas as dependências necessárias.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Crie um arquivo .env.local e configure de acordo com o .env.example
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Pode ser encontrado: [AQUI](https://github.com/emanuelmarcolongo/spendify/blob/main/.env.example ".env.example")
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+4. Execute o comando `npm run dev` para iniciar o servidor de desenvolvimento.
+```bash
+npm run dev
+```
+5. Acesse `http://localhost:3000` em seu navegador para abrir o aplicativo.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contato:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Gostou do projeto, tem alguma dica ou sugestão? 
+Me procure no LinkedIn: https://www.linkedin.com/in/emanuelmarcolongo/
+ou me mande um e-mail: emanuelmarcolongo@gmail.com
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
