@@ -29,9 +29,9 @@ export function ExpensesByCategory({ transactions }: transactionData) {
     <>
       <div className="flex w-full mx-auto flex-col text-black rounded-xl text-start gap-10 justify-center items-center lg:w-[50%]">
         <h1 className="text-xl text-black flex-start font-bold self-start">Gastos por Categorias</h1>
-        <ul className="w-full flex flex-col space-y-2 text-start">
+        <div className="w-full flex flex-col space-y-2 text-start">
           {categoryExpensesList.map((expense) => (
-            <li
+            <div
               className=" font-semibold text-white bg-darkGray ring-2 ring-primary drop-shadow-xl p-2 space-y-2 rounded-xl"
               key={expense.category}
             >
@@ -51,9 +51,9 @@ export function ExpensesByCategory({ transactions }: transactionData) {
                   value={Math.round((expense.value * 100) / totalValue)}
                 />
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </>
   );
