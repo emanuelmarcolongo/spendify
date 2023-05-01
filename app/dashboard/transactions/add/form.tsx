@@ -21,6 +21,23 @@ export default function AddTransactionForm() {
     description: "",
   });
 
+  const expensesCategories: string[] = [
+    "Alimentação",
+    "Habitação",
+    "Transporte",
+    "Saúde",
+    "Educação",
+    "Roupas",
+    "Entretenimento",
+    "Compras",
+    "Viagens",
+  ];
+  const incomeCategories: string[] = [
+    "Salário",
+    "Freelance",
+    "Investimentos",
+    "Venda",
+  ];
   const [error, setError] = useState<string | null>(null);
 
   function handleForm(e: React.ChangeEvent<HTMLInputElement>) {
@@ -38,30 +55,30 @@ export default function AddTransactionForm() {
         method: "post",
         body: JSON.stringify(form),
       };
-  
+
       const res = await fetch("/api/transactions", options);
 
       if (res.status === 200) {
-        alert(await res.json())
+        alert(await res.json());
         setForm({
           value: 0,
           type: "",
           category: "",
-          description: ""})
-      }
-      else if (res.status !== 200) {
-        setError(await res.json())
+          description: "",
+        });
+      } else if (res.status !== 200) {
+        setError(await res.json());
       }
     } catch (error: any) {
-      setError(error?.message)
+      setError(error?.message);
     }
-    
-
-   
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-8 font-bold w-full sm:w-[400px]">
+    <form
+      onSubmit={onSubmit}
+      className="space-y-8 font-bold w-full sm:w-[400px]"
+    >
       <div className="grid w-full gap-2  items-center">
         <Label htmlFor="value">Valor</Label>
         <Input
@@ -112,15 +129,9 @@ export default function AddTransactionForm() {
               <SelectValue placeholder="Categoria" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="alimentação">Alimentação</SelectItem>
-              <SelectItem value="habitação">Habitação</SelectItem>
-              <SelectItem value="transporte">Transporte</SelectItem>
-              <SelectItem value="saude">Saúde</SelectItem>
-              <SelectItem value="educação">Educação</SelectItem>
-              <SelectItem value="entretenimento">Entretenimento</SelectItem>
-              <SelectItem value="roupas">Roupas</SelectItem>
-              <SelectItem value="compras">Compras</SelectItem>
-              <SelectItem value="viagens">Viagens</SelectItem>
+              {expensesCategories.map((category) => (
+                <SelectItem value={category}>{category}</SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
@@ -139,10 +150,9 @@ export default function AddTransactionForm() {
               <SelectValue placeholder="Categoria" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="salario">Salário</SelectItem>
-              <SelectItem value="freelance">Freelance</SelectItem>
-              <SelectItem value="investimentos">Investimentos</SelectItem>
-              <SelectItem value="vendas">Vendas</SelectItem>
+              {incomeCategories.map((category) => (
+                <SelectItem value={category}>{category}</SelectItem>
+              ))}
             </SelectContent>
           </Select>
         </div>
