@@ -1,5 +1,5 @@
-import HomeContent from "@/components/home/Content"
-import HomeNavbar from "../components/home/Navbar"
+import HomeContent from "./(home-components)/content"
+import HomeNavbar from "./(home-components)/navbar"
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

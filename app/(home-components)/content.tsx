@@ -1,6 +1,5 @@
-import Link from "next/link";
-import TypeAnimationComponent from "./TypeAnimation";
-import { PreviewImage } from "./Preview";
+import TypeAnimationComponent from "./type-animation";
+import { PreviewImage } from "./preview";
 
 export default function HomeContent() {
   return (

@@ -1,4 +1,4 @@
-import { Button } from "../ui/button";
+import { Button } from "../../components/ui/button";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -7,7 +7,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../ui/dropdown";
+} from "../../components/ui/dropdown";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
