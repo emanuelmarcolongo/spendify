@@ -2,7 +2,7 @@
 
 import weekofYear from "dayjs/plugin/weekOfYear"
 import dayjs from "dayjs";
-import { transactionData } from "../../lib/types";
+import { transactionData } from "../../../lib/types";
 import { useState } from "react";
 import { UserInfo } from "./userInfo";
 import { ExpensesByCategory } from "./expenses-by-category";

@@ -1,4 +1,4 @@
-import { transactionData } from "../../lib/types";
+import { transactionData } from "../../../lib/types";
 import { Progress } from "@/components/ui/progress";
 
 export function ExpensesByCategory({ transactions }: transactionData) {

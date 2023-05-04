@@ -1,4 +1,4 @@
-import DashboardNavbar from "@/components/dashboard/Navbar";
+import DashboardNavbar from "../../(dashboard-components)/navbar";
 import AddTransactionForm from "./form"
 import type { Metadata } from "next";
 
