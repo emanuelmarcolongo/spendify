@@ -1,7 +1,7 @@
 
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-import { Transaction } from "../../../lib/types";
+import { Transaction } from "../../../../lib/types";
 import dayjs from 'dayjs';
 
 export function TransactionComponent({

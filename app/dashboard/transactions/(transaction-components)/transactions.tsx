@@ -9,8 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Transaction, transactionData } from "../../../lib/types";
-import { TimeFilter } from "../../../app/dashboard/(dashboard-components)/timeFilter";
+import { Transaction, transactionData } from "@/lib/types";
+import { TimeFilter } from "@/app/dashboard/(dashboard-components)/timeFilter";
 import { TransactionComponent } from "./transactionComponent";
 
 export default function Transactions({ transactions }: transactionData) {

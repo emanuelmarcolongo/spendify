@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { transactionData } from "../../../lib/types";
-import { TransactionComponent } from "../../../components/dashboard/transactions/transactionComponent";
+import { TransactionComponent } from "../transactions/(transaction-components)/transactionComponent";
 
 export function UserInfo({ transactions }: transactionData) {
   const { userBalance, income, spent } = calculateUserBalance({ transactions });

@@ -1,5 +1,5 @@
 import { getTransactions } from "@/lib/transactions";
-import Transactions from "../../../components/dashboard/transactions/transactions";
+import Transactions from "../transactions/(transaction-components)/transactions";
 
 import type { Metadata } from "next";
 import DashboardNavbar from "../(dashboard-components)/navbar";
