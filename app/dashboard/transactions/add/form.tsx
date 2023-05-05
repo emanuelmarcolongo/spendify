@@ -129,7 +129,7 @@ export default function AddTransactionForm() {
               <SelectValue placeholder="Categoria" />
             </SelectTrigger>
             <SelectContent>
-              {expensesCategories.map((category, idx) => (
+              {expensesCategories?.map((category, idx) => (
                 <SelectItem key={idx} value={category}>{category}</SelectItem>
               ))}
             </SelectContent>
@@ -150,7 +150,7 @@ export default function AddTransactionForm() {
               <SelectValue placeholder="Categoria" />
             </SelectTrigger>
             <SelectContent>
-              {incomeCategories.map((category, idx) => (
+              {incomeCategories?.map((category, idx) => (
                 <SelectItem key={idx} value={category}>{category}</SelectItem>
               ))}
             </SelectContent>

@@ -41,7 +41,7 @@ export async function getTransactions () {
     }
 
     const transactions = data.reverse();
-    return transactions.map((i) => ({
+    return transactions?.map((i) => ({
         ...i,
         createdAt: i.createdAt.toISOString(),
       }));
