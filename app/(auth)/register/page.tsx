@@ -1,7 +1,7 @@
 import Link from "next/link"
 import SignUpForm from "./form"
 import type { Metadata } from "next";
-import HomeNavbar from "@/components/home/Navbar";
+import HomeNavbar from "@/app/(home-components)/navbar";
 
 export const metadata: Metadata = {
     title: "Registro",
