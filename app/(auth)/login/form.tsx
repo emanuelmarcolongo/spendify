@@ -6,19 +6,16 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from 'next/navigation';
-
-
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const router = useRouter();
   const callbackUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
-  const [error, setError] = useState('')
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-
 
   function handleForm(e: React.ChangeEvent<HTMLInputElement>) {
     setForm({
@@ -29,21 +26,19 @@ export default function LoginForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setError("")
+    setError("");
 
-    console.log(callbackUrl)
-    
     try {
       const res = await signIn("credentials", {
         redirect: false,
         email: form.email,
         password: form.password,
-        callbackUrl
+        callbackUrl,
       });
       if (!res?.error) {
-        router.push('/dashboard')
+        router.push("/dashboard");
       } else {
-        setError('Email ou senha inválidos')
+        setError("Email ou senha inválidos");
       }
     } catch (error: any) {
       setError(error?.message);
