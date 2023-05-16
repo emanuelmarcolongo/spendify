@@ -18,7 +18,16 @@ export default function LoginForm() {
   const router = useRouter();
   const callbackUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
   const [error, setError] = useState("");
-  const { register, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
@@ -47,19 +56,30 @@ export default function LoginForm() {
       <div className="grid w-full gap-2 items-center">
         <Label htmlFor="email">E-mail</Label>
         <Input
-          {...register("email", { required: true })}
+          {...register("email", {
+            required: true,
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Insira um formato de e-mail válido",
+            },
+          })}
           name="email"
           type="email"
         ></Input>
+        {errors.email?.type === "required" && <Alert>Insira seu e-mail</Alert>}
+        {errors.email?.message && <Alert>{errors.email?.message}</Alert>}
       </div>
 
-      <div className="grid w-full items-center">
+      <div className="grid w-full gap-2 items-center">
         <Label htmlFor="password">Senha</Label>
         <Input
           {...register("password", { required: true })}
           name="password"
           type="password"
         ></Input>
+        {errors.password?.type === "required" && (
+          <Alert>Insira sua senha</Alert>
+        )}
       </div>
 
       {error && <Alert>{error}</Alert>}
