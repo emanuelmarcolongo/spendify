@@ -7,34 +7,28 @@ import { Label } from "@radix-ui/react-label";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type FormValues = {
+  email: string;
+  password: string;
+};
 
 export default function LoginForm() {
   const router = useRouter();
   const callbackUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
   const [error, setError] = useState("");
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+  const { register, handleSubmit } = useForm<FormValues>();
 
-  function handleForm(e: React.ChangeEvent<HTMLInputElement>) {
-    setForm({
-      ...form,
-      [e.currentTarget.name]: e.currentTarget.value,
-    });
-  }
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setError("");
-
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const res = await signIn("credentials", {
         redirect: false,
-        email: form.email,
-        password: form.password,
+        email: data.email,
+        password: data.password,
         callbackUrl,
       });
+      console.log(res);
       if (!res?.error) {
         router.push("/dashboard");
       } else {
@@ -43,16 +37,17 @@ export default function LoginForm() {
     } catch (error: any) {
       setError(error?.message);
     }
-  }
+  };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-8 w-full sm:w-[400px]">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-8 w-full sm:w-[400px]"
+    >
       <div className="grid w-full gap-2 items-center">
         <Label htmlFor="email">E-mail</Label>
         <Input
-          required
-          value={form.email}
-          onChange={handleForm}
+          {...register("email", { required: true })}
           name="email"
           type="email"
         ></Input>
@@ -61,9 +56,7 @@ export default function LoginForm() {
       <div className="grid w-full items-center">
         <Label htmlFor="password">Senha</Label>
         <Input
-          required
-          value={form.password}
-          onChange={handleForm}
+          {...register("password", { required: true })}
           name="password"
           type="password"
         ></Input>
@@ -72,7 +65,9 @@ export default function LoginForm() {
       {error && <Alert>{error}</Alert>}
 
       <div className="w-full">
-        <Button className="w-full ">Continuar</Button>
+        <Button type="submit" className="w-full ">
+          Continuar
+        </Button>
       </div>
     </form>
   );
