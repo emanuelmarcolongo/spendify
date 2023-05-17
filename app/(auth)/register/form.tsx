@@ -63,19 +63,20 @@ export default function SignUpForm() {
       <div className="grid w-full gap-2 items-center">
         <Label htmlFor="name">Nome completo</Label>
         <Input
-          required
           {...register("name", {
             required: true
           })}
           name="name"
           type="text"
         ></Input>
+         {errors.name?.type === "required" && (
+          <Alert>Insira um nome</Alert>
+        )}
       </div>
 
       <div className="grid w-full  items-center">
         <Label htmlFor="email">E-mail</Label>
         <Input
-          required
           {...register("email", {
             required: true,
             pattern: {
@@ -86,30 +87,36 @@ export default function SignUpForm() {
           name="email"
           type="email"
         ></Input>
+        {errors.email?.type === "required" && <Alert>Insira seu e-mail</Alert>}
+        {errors.email?.message && <Alert>{errors.email?.message}</Alert>}
       </div>
 
       <div className="grid w-full items-center">
         <Label htmlFor="password">Senha</Label>
         <Input
-          required
           {...register("password", {
             required: true
           })}
           name="password"
           type="password"
         ></Input>
+        {errors.password?.type === "required" && (
+          <Alert>Insira sua senha</Alert>
+        )}
       </div>
 
       <div className="grid w-full items-center">
-        <Label htmlFor="password">Confirmar senha</Label>
+        <Label htmlFor="confirmPassword">Confirmar senha</Label>
         <Input
-          required
           {...register("confirmPassword", {
             required: true
           })}
           name="confirmPassword"
           type="password"
         ></Input>
+        {errors.confirmPassword?.type === "required" && (
+          <Alert>Repita sua senha</Alert>
+        )}
       </div>
 
       {error && <Alert>{error}</Alert>}
