@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 
 export default function AddTransactionForm() {
+  const [disabled, setDisabled] = useState(false);
   const [form, setForm] = useState({
     value: 0,
     type: "",
@@ -50,6 +51,7 @@ export default function AddTransactionForm() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
+    setDisabled(true)
     try {
       const options = {
         method: "post",
@@ -59,6 +61,7 @@ export default function AddTransactionForm() {
       const res = await fetch("/api/transactions", options);
 
       if (res.status === 200) {
+        setDisabled(false)
         alert(await res.json());
         setForm({
           value: 0,
@@ -67,9 +70,11 @@ export default function AddTransactionForm() {
           description: "",
         });
       } else if (res.status !== 200) {
+        setDisabled(false)
         setError(await res.json());
       }
     } catch (error: any) {
+      setDisabled(false)
       setError(error?.message);
     }
   }
@@ -163,7 +168,7 @@ export default function AddTransactionForm() {
       {error && <Alert>{error}</Alert>}
 
       <div className="w-full">
-        <Button className="w-full ">Adicionar transação</Button>
+        <Button disabled={disabled}className="w-full ">Adicionar transação</Button>
       </div>
     </form>
   );

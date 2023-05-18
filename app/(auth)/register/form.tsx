@@ -16,6 +16,7 @@ type FormValues = {
 };
 
 export default function SignUpForm() {
+  const [disabled, setDisabled] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const {
     register,
@@ -32,8 +33,10 @@ export default function SignUpForm() {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setError("");
+    setDisabled(true);
 
     if (data.password !== data.confirmPassword) {
+      setDisabled(false);
       return setError("As senhas devem ser iguais");
     }
 
@@ -46,11 +49,14 @@ export default function SignUpForm() {
         },
       });
       if (res.ok) {
+        setDisabled(false);
         signIn();
       } else {
+        setDisabled(false);
         setError((await res.json()).error);
       }
     } catch (error: any) {
+      setDisabled(false);
       setError(error?.message);
     }
   };
@@ -122,7 +128,7 @@ export default function SignUpForm() {
       {error && <Alert>{error}</Alert>}
 
       <div className="w-full">
-        <Button type='submit' className="w-full ">Criar conta!</Button>
+        <Button disabled={disabled} type='submit' className="w-full ">Criar conta!</Button>
       </div>
     </form>
   );

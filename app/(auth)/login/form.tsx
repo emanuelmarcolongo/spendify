@@ -9,14 +9,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-
-
 type FormValues = {
   email: string;
   password: string;
 };
 
 export default function LoginForm() {
+  const [disabled, setDisabled] = useState(false);
   const router = useRouter();
   const callbackUrl = process.env.NEXT_PUBLIC_NEXTAUTH_URL;
   const [error, setError] = useState("");
@@ -32,6 +31,7 @@ export default function LoginForm() {
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    setDisabled(true);
     try {
       const res = await signIn("credentials", {
         redirect: false,
@@ -43,9 +43,11 @@ export default function LoginForm() {
         router.push("/dashboard");
       } else {
         setError("Email ou senha inválidos");
+        setDisabled(false);
       }
     } catch (error: any) {
       setError(error?.message);
+      setDisabled(false);
     }
   };
 
@@ -67,8 +69,12 @@ export default function LoginForm() {
           name="email"
           type="email"
         ></Input>
-        {errors.email?.type === "required" && <InputAlert>Insira seu e-mail</InputAlert>}
-        {errors.email?.message && <InputAlert>{errors.email?.message}</InputAlert>}
+        {errors.email?.type === "required" && (
+          <InputAlert>Insira seu e-mail</InputAlert>
+        )}
+        {errors.email?.message && (
+          <InputAlert>{errors.email?.message}</InputAlert>
+        )}
       </div>
 
       <div className="grid w-full gap-2 items-center">
@@ -85,11 +91,9 @@ export default function LoginForm() {
 
       {error && <Alert>{error}</Alert>}
 
-      
-        <Button type="submit" className="w-full ">
-          Continuar
-        </Button>
-      
+      <Button disabled={disabled} type="submit" className="w-full ">
+        Continuar
+      </Button>
     </form>
   );
 }
