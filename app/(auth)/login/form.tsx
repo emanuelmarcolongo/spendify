@@ -85,11 +85,11 @@ export default function LoginForm() {
 
       {error && <Alert>{error}</Alert>}
 
-      <div className="w-full">
+      
         <Button type="submit" className="w-full ">
           Continuar
         </Button>
-      </div>
+      
     </form>
   );
 }

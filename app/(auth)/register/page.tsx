@@ -16,7 +16,7 @@ export default function SignUpPage() {
         <>
            {/* @ts-expect-error Async Server Component */}
         <HomeNavbar></HomeNavbar>
-        <div className="h-screen w-screen flex flex-col justify-center items-center">
+        <div className="h-screen w-screen flex flex-col font-semibold justify-center items-center">
          
             
             <div className="shadow-xl sm:bg-white px-8 pb-8 pt-12 space-y-12 rounded-xl">
