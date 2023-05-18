@@ -1,6 +1,6 @@
 "use client";
 
-import { Alert } from "@/components/ui/alert";
+import { Alert, InputAlert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
@@ -60,7 +60,7 @@ export default function SignUpForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="space-y-8 w-full sm:w-[400px]"
     >
-      <div className="grid w-full gap-2 items-center">
+      <div className="grid w-full  items-center">
         <Label htmlFor="name">Nome completo</Label>
         <Input
           {...register("name", {
@@ -70,7 +70,7 @@ export default function SignUpForm() {
           type="text"
         ></Input>
          {errors.name?.type === "required" && (
-          <Alert>Insira um nome</Alert>
+          <InputAlert>Insira seu nome</InputAlert>
         )}
       </div>
 
@@ -87,8 +87,8 @@ export default function SignUpForm() {
           name="email"
           type="email"
         ></Input>
-        {errors.email?.type === "required" && <Alert>Insira seu e-mail</Alert>}
-        {errors.email?.message && <Alert>{errors.email?.message}</Alert>}
+        {errors.email?.type === "required" && <InputAlert>Insira seu e-mail</InputAlert>}
+        {errors.email?.message && <InputAlert>{errors.email?.message}</InputAlert>}
       </div>
 
       <div className="grid w-full items-center">
@@ -101,7 +101,7 @@ export default function SignUpForm() {
           type="password"
         ></Input>
         {errors.password?.type === "required" && (
-          <Alert>Insira sua senha</Alert>
+          <InputAlert>Insira sua senha</InputAlert>
         )}
       </div>
 
@@ -115,7 +115,7 @@ export default function SignUpForm() {
           type="password"
         ></Input>
         {errors.confirmPassword?.type === "required" && (
-          <Alert>Repita sua senha</Alert>
+          <InputAlert>Repita sua senha</InputAlert>
         )}
       </div>
 
