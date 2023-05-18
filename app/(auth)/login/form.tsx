@@ -1,6 +1,6 @@
 "use client";
 
-import { Alert } from "@/components/ui/alert";
+import { Alert, InputAlert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
@@ -8,6 +8,8 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
+
+
 
 type FormValues = {
   email: string;
@@ -37,7 +39,6 @@ export default function LoginForm() {
         password: data.password,
         callbackUrl,
       });
-      console.log(res);
       if (!res?.error) {
         router.push("/dashboard");
       } else {
@@ -66,8 +67,8 @@ export default function LoginForm() {
           name="email"
           type="email"
         ></Input>
-        {errors.email?.type === "required" && <Alert>Insira seu e-mail</Alert>}
-        {errors.email?.message && <Alert>{errors.email?.message}</Alert>}
+        {errors.email?.type === "required" && <InputAlert>Insira seu e-mail</InputAlert>}
+        {errors.email?.message && <InputAlert>{errors.email?.message}</InputAlert>}
       </div>
 
       <div className="grid w-full gap-2 items-center">
@@ -78,7 +79,7 @@ export default function LoginForm() {
           type="password"
         ></Input>
         {errors.password?.type === "required" && (
-          <Alert>Insira sua senha</Alert>
+          <InputAlert>Insira sua senha</InputAlert>
         )}
       </div>
 
