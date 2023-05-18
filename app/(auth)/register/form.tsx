@@ -125,7 +125,7 @@ export default function SignUpForm() {
         )}
       </div>
 
-      {error && <Alert>{error}</Alert>}
+      {error && <InputAlert>{error}</InputAlert>}
 
       <div className="w-full">
         <Button disabled={disabled} type='submit' className="w-full ">Criar conta!</Button>

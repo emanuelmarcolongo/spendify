@@ -89,7 +89,7 @@ export default function LoginForm() {
         )}
       </div>
 
-      {error && <Alert>{error}</Alert>}
+      {error && <InputAlert>{error}</InputAlert>}
 
       <Button disabled={disabled} type="submit" className="w-full ">
         Continuar
