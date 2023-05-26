@@ -123,7 +123,7 @@ export default function AddTransactionForm() {
         </Select>
       </div>
 
-      {form.type === "saida" ? (
+      {form.type === "saida" && (
         <div className="grid w-full gap-2 items-center">
           <Label htmlFor="category">Categoria</Label>
           <Select
@@ -140,11 +140,9 @@ export default function AddTransactionForm() {
             </SelectContent>
           </Select>
         </div>
-      ) : (
-        ""
       )}
 
-      {form.type === "entrada" ? (
+      {form.type === "entrada" && (
         <div className="grid w-full gap-2 items-center">
           <Label htmlFor="category">Categoria</Label>
           <Select
@@ -161,8 +159,6 @@ export default function AddTransactionForm() {
             </SelectContent>
           </Select>
         </div>
-      ) : (
-        ""
       )}
 
       {error && <Alert>{error}</Alert>}
