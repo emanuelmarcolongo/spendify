@@ -19,47 +19,70 @@ export default function Transactions({ transactions }: transactionData) {
   var weekOfYear = require("dayjs/plugin/weekOfYear");
   dayjs.extend(weekOfYear);
 
-  const filteredTransactions: string | Transaction[] =
-    transactions !== undefined && transactions.length > 0
-      ? filter === "oldest"
-        ? [...transactions].sort((a, b) => a.id - b.id)
-        : filter === "latest" || ""
-        ? [...transactions].sort((a, b) => b.id - a.id)
-        : filter === "highest"
-        ? [...transactions].sort((a, b) => b.value - a.value)
-        : filter === "lowest"
-        ? [...transactions].sort((a, b) => a.value - b.value)
-        : filter === "income"
-        ? [...transactions].filter((i) => i.type === "entrada")
-        : filter === "spent"
-        ? [...transactions].filter((i) => i.type === "saida")
-        : transactions
-      : [];
+  let filteredTransactions: string | Transaction[] = [];
 
-  
+  if (transactions !== undefined && transactions.length > 0) {
+    switch (filter) {
+      case "oldest":
+        filteredTransactions = [...transactions].sort((a, b) => a.id - b.id);
+        break;
+      case "latest":
+        filteredTransactions = [...transactions].sort((a, b) => b.id - a.id);
+        break;
+      case "highest":
+        filteredTransactions = [...transactions].sort(
+          (a, b) => b.value - a.value
+        );
+        break;
+      case "lowest":
+        filteredTransactions = [...transactions].sort(
+          (a, b) => a.value - b.value
+        );
+        break;
+      case "income":
+        filteredTransactions = [...transactions].filter(
+          (i) => i.type === "entrada"
+        );
+        break;
+      case "spent":
+        filteredTransactions = [...transactions].filter(
+          (i) => i.type === "saida"
+        );
+        break;
+      default:
+        filteredTransactions = transactions;
+    }
+  }
 
-  const timeFilterTransactions =
-    filteredTransactions !== undefined && filteredTransactions.length > 0
-      ? time === "month"
-        ? [...filteredTransactions].filter(
-            (i) =>
-              dayjs(i.createdAt).month() ===
-              (dayjs().month() || dayjs().month())
-          )
-        : time === "week"
-        ? [...filteredTransactions].filter(
-            (i) => dayjs(i.createdAt).week() === dayjs().week()
-          )
-        : time === "3months"
-        ? [...filteredTransactions].filter(
-            (i) => dayjs(i.createdAt).month() >= dayjs().month() - 2
-          )
-        : filteredTransactions
-      : time === "year"
-      ? [...filteredTransactions].filter(
+  let timeFilteredTransactions: Transaction[] = [];
+
+  if (filteredTransactions !== undefined && filteredTransactions.length > 0) {
+    switch (time) {
+      case "month":
+        timeFilteredTransactions = [...filteredTransactions].filter(
+          (i) => dayjs(i.createdAt).month() === dayjs().month()
+        );
+        break;
+      case "week":
+        timeFilteredTransactions = [...filteredTransactions].filter(
+          (i) => dayjs(i.createdAt).week() === dayjs().week()
+        );
+        break;
+      case "3months":
+        timeFilteredTransactions = [...filteredTransactions].filter(
+          (i) => dayjs(i.createdAt).month() >= dayjs().month() - 2
+        );
+        break;
+      case "year":
+        timeFilteredTransactions = [...filteredTransactions].filter(
           (i) => dayjs(i.createdAt).year() >= dayjs().year() - 2
-        )
-      : filteredTransactions;
+        );
+        break;
+      default:
+        timeFilteredTransactions = filteredTransactions;
+    }
+  }
+
 
   return (
     <div className="flex flex-col w-full mx-auto bg-white lg:max-w-full rounded-xl p-10">
@@ -86,8 +109,8 @@ export default function Transactions({ transactions }: transactionData) {
         <TimeFilter time={time} setTime={setTime} />
 
         <div className="space-y-1 p-2 mb-11 border-2 border-darkGray rounded-xl">
-          {timeFilterTransactions &&
-            timeFilterTransactions?.map((i) => {
+          {timeFilteredTransactions &&
+            timeFilteredTransactions?.map((i) => {
               return (
                 <TransactionComponent
                   key={i.id}
