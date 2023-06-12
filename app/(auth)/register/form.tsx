@@ -1,6 +1,6 @@
 "use client";
 
-import { Alert, InputAlert } from "@/components/ui/alert";
+import { InputAlert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
