@@ -23,7 +23,7 @@ Apesar dos obstáculos, estou satisfeito com o resultado final do projeto. Ele m
 </div>
 
 Confira o deploy:
-https://spendify-six.vercel.app/
+https://spendify-seven.vercel.app/
 
 ## Funcionalidades 🚀
 
