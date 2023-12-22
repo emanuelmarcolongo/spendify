@@ -42,12 +42,12 @@ export default async function HomeNavbar() {
                 ></Image>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>Navegar para:</DropdownMenuLabel>
+                <DropdownMenuLabel>Ir para:</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                {navLinks?.map((navLink) => (
-                  <DropdownMenuItem key={navLink.id}>
-                    <a className="w-full" href={`/${navLink.ref}`}>
-                      {navLink.name}
+                {navLinks?.map((navlink) => (
+                  <DropdownMenuItem key={navlink.id}>
+                    <a className="w-full" href={`/${navlink.ref}`}>
+                      {navlink.name}
                     </a>
                   </DropdownMenuItem>
                 ))}
@@ -65,13 +65,13 @@ export default async function HomeNavbar() {
 
           {/* nav menu para large devices */}
           <div className="hidden md:inline-flex items-center md:w-[500px] text-white font-bold justify-between">
-            {navLinks?.map((navLink, idx) => (
+            {navLinks?.map((navlink, idx) => (
               <a
                 className="hover:text-tertiary"
-                href={`${navLink.ref}`}
+                href={`${navlink.ref}`}
                 key={idx}
               >
-                {navLink.name}
+                {navlink.name}
               </a>
             ))}
             {session?.user && (
