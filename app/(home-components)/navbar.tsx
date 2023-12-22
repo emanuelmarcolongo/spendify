@@ -1,4 +1,3 @@
-import { Button } from "../../components/ui/button";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -11,17 +10,27 @@ import {
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { navLinks } from "../constants";
+import { whiteLogo } from "@/public/assets";
 
 export default async function HomeNavbar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <div className="w-full bg-primary mx-auto drop-shadow-2xl">
+    <nav className="w-full py-3 bg-primary1 mx-auto drop-shadow-2xl fixed top-0 z-10">
       <div className="mx-auto lg:max-w-[1280px] px-10">
-        <nav
+        <div
           className="max-w-full lg:w-[1280px]mx-auto w-full flex justify-between items-center py-2 
                  "
         >
+          <a
+            className="text-white font-extrabold text-xl flex items-center "
+            href={"/"}
+          >
+            <Image width={140} alt="spendifyLogo" src={whiteLogo} />
+          </a>
+
+          {/* drop down menu para medium devices */}
           <div className="md:hidden ">
             <DropdownMenu>
               <DropdownMenuTrigger>
@@ -35,21 +44,13 @@ export default async function HomeNavbar() {
               <DropdownMenuContent>
                 <DropdownMenuLabel>Navegar para:</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
-                  <a className="w-full" href={"/"}>
-                    Home
-                  </a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <a className="w-full" href={"/register"}>
-                    Cadastro
-                  </a>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link className="w-full" href={"/login"}>
-                    Login
-                  </Link>
-                </DropdownMenuItem>
+                {navLinks?.map((navLink) => (
+                  <DropdownMenuItem key={navLink.id}>
+                    <a className="w-full" href={`/${navLink.ref}`}>
+                      {navLink.name}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
 
                 {session?.user && (
                   <DropdownMenuItem>
@@ -62,55 +63,25 @@ export default async function HomeNavbar() {
             </DropdownMenu>
           </div>
 
-          <div className="hidden md:inline-flex items-center md:w-[500px]  justify-between">
-            {!session?.user && (
-              <>
-                <a href={"/"}>
-                  <Button className="hover:bg-opacity-40">Home</Button>
-                </a>
-                <a href={"/register"}>
-                  <Button className="hover:bg-opacity-40">Cadastro</Button>
-                </a>
-                <a href={"/login"}>
-                  <Button className="hover:bg-opacity-40">Login</Button>
-                </a>
-              </>
-            )}
-
+          {/* nav menu para large devices */}
+          <div className="hidden md:inline-flex items-center md:w-[500px] text-white font-bold justify-between">
+            {navLinks?.map((navLink, idx) => (
+              <a
+                className="hover:text-tertiary"
+                href={`${navLink.ref}`}
+                key={idx}
+              >
+                {navLink.name}
+              </a>
+            ))}
             {session?.user && (
-              <>
-                <a href={"/"}>
-                  <Button className="hover:bg-opacity-40">Home</Button>
-                </a>
-                <a href={"/dashboard"}>
-                  <Button className="hover:bg-opacity-40">Dashboard</Button>
-                </a>
-                <a href={"/register"}>
-                  <Button className="hover:bg-opacity-40">Cadastro</Button>
-                </a>
-                <a href={"/login"}>
-                  <Button className="hover:bg-opacity-40">Login</Button>
-                </a>
-              </>
+              <a className="hover:text-tertiary" href={`/dashboard`}>
+                Dashboard
+              </a>
             )}
           </div>
-
-          <div className=" flex items-center">
-            <a
-              className="text-black font-extrabold text-xl flex items-center "
-              href={"/"}
-            >
-              <Image
-                width={40}
-                height={40}
-                alt="spendifyLogo"
-                src="/logo.svg"
-              />
-              Spendify
-            </a>
-          </div>
-        </nav>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 }
