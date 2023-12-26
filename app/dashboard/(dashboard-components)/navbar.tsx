@@ -26,7 +26,14 @@ export default function DashboardNavbar() {
             className="text-white font-extrabold text-xl flex items-center "
             href={"/"}
           >
-            <Image width={140} alt="spendifyLogo" src={whiteLogo} />
+            <Image
+              style={{
+                width: 140,
+              }}
+              alt="spendifyLogo"
+              src={whiteLogo}
+              priority
+            />
           </a>
 
           <div className="md:hidden ">

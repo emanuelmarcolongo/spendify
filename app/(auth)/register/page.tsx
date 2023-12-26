@@ -13,7 +13,7 @@ export default function SignUpPage() {
     <section>
       {/* @ts-expect-error Async Server Component */}
       <HomeNavbar></HomeNavbar>
-      <div className="lg:max-w-[1280px] h-screen w-screen flex gap-8 items-center font-semibold justify-between mx-auto">
+      <div className="lg:max-w-[1280px] h-screen w-screen flex gap-8 items-center font-semibold justify-between mx-auto mt-10">
         <div className="sm:block hidden max-w-[480px]">
           <RobotImage />
         </div>

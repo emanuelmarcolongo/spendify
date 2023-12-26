@@ -30,7 +30,14 @@ export default async function HomeNavbar() {
             className="text-white font-extrabold text-xl flex items-center "
             href={"/"}
           >
-            <Image width={140} alt="spendifyLogo" src={whiteLogo} />
+            <Image
+              style={{
+                width: 140,
+              }}
+              alt="spendifyLogo"
+              src={whiteLogo}
+              priority
+            />
           </a>
 
           {/* drop down menu para medium devices */}
