@@ -20,10 +20,17 @@ module.exports = {
       secondary: "#51A5A8",
       darkGray: "#252525",
       primary1: "#00040f",
-      secondary1: "#00f6ff",
       tertiary: "#aaa6c3",
     },
     extend: {
+      dropShadow: {
+        primary: "0 15px 15px rgba(0, 246, 255, 0.1)",
+        "3xl": "0 35px 35px rgba(0, 0, 0, 0.25)",
+        "4xl": [
+          "0 35px 35px rgba(0, 0, 0, 0.25)",
+          "0 45px 65px rgba(0, 0, 0, 0.15)",
+        ],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
@@ -35,7 +42,7 @@ module.exports = {
         },
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
+        "accorion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },

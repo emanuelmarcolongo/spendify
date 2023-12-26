@@ -17,7 +17,7 @@ export default async function HomeNavbar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <nav className="w-full py-3 bg-primary1 mx-auto drop-shadow-2xl fixed top-0 z-10">
+    <nav className="w-full py-3 bg-primary1 mx-auto drop-shadow-primary fixed top-0 z-10">
       <div className="mx-auto lg:max-w-[1280px]">
         <div
           className="max-w-full lg:w-[1280px] mx-auto w-full flex justify-between items-center py-2 
