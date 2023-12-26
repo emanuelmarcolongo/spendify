@@ -10,10 +10,13 @@ import {
 import Link from "next/link";
 import { options, whiteLogo } from "@/public/assets";
 import { dashboardNavLinks } from "@/app/constants";
+import styles from "@/app/styles";
 
 export default function DashboardNavbar() {
   return (
-    <nav className="w-full py-3 bg-primary1 mx-auto drop-shadow-primary fixed top-0 z-10">
+    <nav
+      className={`w-full py-3 ${styles.paddingX} bg-primary1 mx-auto drop-shadow-primary fixed top-0 z-10`}
+    >
       <div className="mx-auto lg:max-w-[1280px]">
         <div
           className="max-w-full lg:w-[1280px] mx-auto w-full flex justify-between items-center py-2 

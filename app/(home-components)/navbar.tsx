@@ -12,13 +12,16 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { navLinks } from "../constants";
 import { options, whiteLogo } from "@/public/assets";
+import styles from "../styles";
 
 export default async function HomeNavbar() {
   const session = await getServerSession(authOptions);
 
   return (
-    <nav className="w-full py-3 bg-primary1 mx-auto drop-shadow-primary fixed top-0 z-10">
-      <div className="mx-auto lg:max-w-[1280px]">
+    <nav
+      className={`w-full ${styles.paddingX} py-3 bg-primary1 mx-auto drop-shadow-primary fixed top-0 z-10`}
+    >
+      <div className="mx-auto lg:max-w-[1280px]  lg:px-0">
         <div
           className="max-w-full lg:w-[1280px] mx-auto w-full flex justify-between items-center py-2 
                  "
