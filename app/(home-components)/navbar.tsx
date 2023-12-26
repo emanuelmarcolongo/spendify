@@ -46,7 +46,7 @@ export default async function HomeNavbar() {
                 <DropdownMenuSeparator />
                 {navLinks?.map((navlink) => (
                   <DropdownMenuItem key={navlink.id}>
-                    <a className="w-full" href={`/${navlink.ref}`}>
+                    <a className="w-full" href={`${navlink.ref}`}>
                       {navlink.name}
                     </a>
                   </DropdownMenuItem>

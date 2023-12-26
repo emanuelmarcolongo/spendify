@@ -64,18 +64,18 @@ export default function SignUpForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 w-full sm:w-[400px]"
+      className="space-y-8 w-full sm:w-[400px] text-black"
     >
-      <div className="grid w-full  items-center">
+      <div className="grid w-full  items-center gap-2">
         <Label htmlFor="name">Nome completo</Label>
         <Input
           {...register("name", {
-            required: true
+            required: true,
           })}
           name="name"
           type="text"
         ></Input>
-         {errors.name?.type === "required" && (
+        {errors.name?.type === "required" && (
           <InputAlert>Insira seu nome</InputAlert>
         )}
       </div>
@@ -93,15 +93,19 @@ export default function SignUpForm() {
           name="email"
           type="email"
         ></Input>
-        {errors.email?.type === "required" && <InputAlert>Insira seu e-mail</InputAlert>}
-        {errors.email?.message && <InputAlert>{errors.email?.message}</InputAlert>}
+        {errors.email?.type === "required" && (
+          <InputAlert>Insira seu e-mail</InputAlert>
+        )}
+        {errors.email?.message && (
+          <InputAlert>{errors.email?.message}</InputAlert>
+        )}
       </div>
 
       <div className="grid w-full items-center">
         <Label htmlFor="password">Senha</Label>
         <Input
           {...register("password", {
-            required: true
+            required: true,
           })}
           name="password"
           type="password"
@@ -115,7 +119,7 @@ export default function SignUpForm() {
         <Label htmlFor="confirmPassword">Confirmar senha</Label>
         <Input
           {...register("confirmPassword", {
-            required: true
+            required: true,
           })}
           name="confirmPassword"
           type="password"
@@ -128,7 +132,13 @@ export default function SignUpForm() {
       {error && <InputAlert>{error}</InputAlert>}
 
       <div className="w-full">
-        <Button disabled={disabled} type='submit' className="w-full ">Criar conta!</Button>
+        <Button
+          disabled={disabled}
+          type="submit"
+          className="w-full bg-blue-gradient hover:opacity-50 "
+        >
+          Criar conta!
+        </Button>
       </div>
     </form>
   );

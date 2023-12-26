@@ -54,7 +54,7 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 w-full sm:w-[400px]"
+      className="space-y-8 w-full sm:w-[400px] text-black "
     >
       <div className="grid w-full gap-2 items-center">
         <Label htmlFor="email">E-mail</Label>
@@ -91,7 +91,11 @@ export default function LoginForm() {
 
       {error && <InputAlert>{error}</InputAlert>}
 
-      <Button disabled={disabled} type="submit" className="w-full ">
+      <Button
+        disabled={disabled}
+        type="submit"
+        className="w-full bg-blue-gradient hover:opacity-50 "
+      >
         Continuar
       </Button>
     </form>

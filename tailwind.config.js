@@ -16,7 +16,7 @@ module.exports = {
       indigo: colors.indigo,
       yellow: colors.yellow,
       red: colors.red,
-      primary: "#27E0A6",
+      primary: "#00f6ff",
       secondary: "#51A5A8",
       darkGray: "#252525",
       primary1: "#00040f",
