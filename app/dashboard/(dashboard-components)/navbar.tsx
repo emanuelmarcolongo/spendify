@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -9,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown";
 import Link from "next/link";
-import { whiteLogo } from "@/public/assets";
+import { options, whiteLogo } from "@/public/assets";
 import { dashboardNavLinks } from "@/app/constants";
 
 export default function DashboardNavbar() {
@@ -32,9 +31,9 @@ export default function DashboardNavbar() {
               <DropdownMenuTrigger>
                 <Image
                   alt={"opções de navegação"}
-                  width={50}
-                  height={50}
-                  src={"/options.svg"}
+                  width={35}
+                  height={35}
+                  src={options}
                 ></Image>
               </DropdownMenuTrigger>
               <DropdownMenuContent>

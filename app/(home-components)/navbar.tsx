@@ -11,7 +11,7 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { navLinks } from "../constants";
-import { whiteLogo } from "@/public/assets";
+import { options, whiteLogo } from "@/public/assets";
 
 export default async function HomeNavbar() {
   const session = await getServerSession(authOptions);
@@ -36,9 +36,9 @@ export default async function HomeNavbar() {
               <DropdownMenuTrigger>
                 <Image
                   alt={"opções de navegação"}
-                  width={50}
-                  height={50}
-                  src={"/options.svg"}
+                  width={35}
+                  height={35}
+                  src={options}
                 ></Image>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
