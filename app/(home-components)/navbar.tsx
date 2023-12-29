@@ -31,9 +31,8 @@ export default async function HomeNavbar() {
             href={"/"}
           >
             <Image
-              style={{
-                width: 140,
-              }}
+              width={140}
+              height={24}
               alt="spendifyLogo"
               src={whiteLogo}
               priority
