@@ -11,8 +11,9 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { navLinks } from "../constants";
-import { options, whiteLogo } from "@/public/assets";
+import { options } from "@/public/assets";
 import styles from "../styles";
+import SpendifyLogo from "./Logo";
 
 export default async function HomeNavbar() {
   const session = await getServerSession(authOptions);
@@ -26,19 +27,7 @@ export default async function HomeNavbar() {
           className="max-w-full lg:w-[1280px] mx-auto w-full flex justify-between items-center py-2 
                  "
         >
-          <a
-            className="text-white font-extrabold text-xl flex items-center "
-            href={"/"}
-          >
-            <Image
-              width={140}
-              height={24}
-              alt="spendifyLogo"
-              src={whiteLogo}
-              priority
-            />
-          </a>
-
+          <SpendifyLogo />
           {/* drop down menu para medium devices */}
           <div className="md:hidden ">
             <DropdownMenu>

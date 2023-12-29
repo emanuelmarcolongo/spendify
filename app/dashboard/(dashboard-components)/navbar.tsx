@@ -8,9 +8,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown";
 import Link from "next/link";
-import { options, whiteLogo } from "@/public/assets";
+import { options } from "@/public/assets";
 import { dashboardNavLinks } from "@/app/constants";
 import styles from "@/app/styles";
+import SpendifyLogo from "@/app/(home-components)/Logo";
 
 export default function DashboardNavbar() {
   return (
@@ -22,19 +23,7 @@ export default function DashboardNavbar() {
           className="max-w-full lg:w-[1280px] mx-auto w-full flex justify-between items-center py-2 
                  "
         >
-          <a
-            className="text-white font-extrabold text-xl flex items-center "
-            href={"/"}
-          >
-            <Image
-              style={{
-                width: 140,
-              }}
-              alt="spendifyLogo"
-              src={whiteLogo}
-              priority
-            />
-          </a>
+          <SpendifyLogo />
 
           <div className="md:hidden ">
             <DropdownMenu>
