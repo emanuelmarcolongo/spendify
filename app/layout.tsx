@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Sua carteira centralizada, gerencie bem suas despesas e conquiste seus objetivos",
   icons: {
-    shortcut: "/logo.svg",
+    shortcut: "/spendify-favicon.png",
   },
 };
 
