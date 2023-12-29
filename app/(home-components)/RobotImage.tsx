@@ -10,7 +10,7 @@ const RobotImage = () => {
         alt="billing"
         width={640}
         height={645}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        sizes="(min-width: 1280px) 640px, (min-width: 780px) calc(50vw - 64px), 100vw"
         className="w-[100%] h-[100%] z-[5] rounded-xl"
         priority={true}
       />
