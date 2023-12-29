@@ -2,7 +2,7 @@ import Link from "next/link";
 import LoginForm from "./form";
 import type { Metadata } from "next";
 import HomeNavbar from "@/app/(home-components)/navbar";
-import { RobotImage } from "@/app/(home-components)/hero";
+import RobotImage from "@/app/(home-components)/RobotImage";
 
 export const metadata: Metadata = {
   title: "Login",
