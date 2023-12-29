@@ -64,7 +64,10 @@ function UserInfoLoadingSkeleton() {
       <div className="max-h-[350px] w-full space-y-1.5 rounded-xl">
         <div className="max-h-[300px] rounded-xl overflow-hidden space-y-1">
           {Array.from({ length: 4 }).map((_, idx) => (
-            <div className="bg-gray-300 animate-pulse w-full h-14"></div>
+            <div
+              key={idx}
+              className="bg-gray-300 animate-pulse w-full h-14"
+            ></div>
           ))}
         </div>
       </div>
