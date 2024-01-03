@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LoginForm from "./form";
 import type { Metadata } from "next";
-import HomeNavbar from "@/app/(home-components)/navbar";
+import HomeNavbar from "@/app/(home-components)/Navbar";
 import RobotImage from "@/app/(home-components)/RobotImage";
 
 export const metadata: Metadata = {

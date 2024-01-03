@@ -1,6 +1,7 @@
 import styles from "../styles";
 import { features } from "../constants";
 import Image from "next/image";
+import ActionButton from "./ActionButton";
 
 const Features = () => {
   return (
@@ -28,6 +29,7 @@ const Features = () => {
             </p>
           </li>
         ))}
+        <ActionButton innerText="Começe já!" navigationRef="/login" />
       </ul>
     </section>
   );

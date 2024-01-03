@@ -1,10 +1,11 @@
 import styles from "../styles";
+import ActionButton from "./ActionButton";
 import RobotImage from "./RobotImage";
 
 const HeroInformation = () => {
   return (
     <div
-      className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
+      className={`flex-1 flex justify-center items-start flex-col xl:px-0 sm:px-16 px-6`}
     >
       <div className="flex text-white flex-row justify-between items-center w-full">
         <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white leading-[75px]">
@@ -22,6 +23,7 @@ const HeroInformation = () => {
         Com o Spendify, você tem controle dos seus gastos e insights a respeito
         do seu fluxo financeiro!
       </p>
+      <ActionButton innerText="Saiba mais!" navigationRef="#sobre" />
     </div>
   );
 };
