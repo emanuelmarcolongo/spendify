@@ -1,6 +1,5 @@
-import HomeContent from "./(home-components)/content";
-import Hero from "./(home-components)/hero";
-import HomeNavbar from "./(home-components)/navbar";
+import Hero from "./(home-components)/Hero";
+import HomeNavbar from "./(home-components)/Navbar";
 import type { Metadata } from "next";
 import styles from "./styles";
 import Features from "./(home-components)/Features";
@@ -23,7 +22,6 @@ export default function Home() {
         </div>
       </div>
       <Features />
-      {/* <HomeContent></HomeContent> */}
     </main>
   );
 }
