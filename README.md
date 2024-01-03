@@ -6,6 +6,8 @@ Para aqueles que possuem várias contas bancárias / dinheiro na carteira / inve
 
 O Spendify foi desenvolvido utilizando o framework Next.js para o front-end e as API routes que o mesmo oferece.
 
+Atualmente, estou refazendo o design do site para um visual mais moderno e para uma melhor experiência do usuário [Clique aqui](https://www.figma.com/file/Fxa6yWqxDvXvBfTeMHwhYW/Spendify?type=design&node-id=0%3A1&mode=design&t=4j0yJYV1c8E5VS3e-1) para acessar o projeto no Figma.
+
 ## Motivação 🔥 
 
 Este projeto foi criado como parte do meu aprendizado no desenvolvimento web, com o objetivo de explorar o framework Next.js e suas funcionalidades.
@@ -46,6 +48,7 @@ https://spendify-seven.vercel.app/
 
 - React
 - Next.js
+- Figma
 - Next-Auth (autenticação)
 - TypeScript
 - JavaScript
