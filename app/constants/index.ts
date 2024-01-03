@@ -4,18 +4,13 @@ export const navLinks = [
   {
     id: "home",
     name: "Início",
-    ref: "/",
+    ref: "#inicio",
   },
   {
-    id: "register",
-    name: "Cadastro",
-    ref: "/register",
-  },
-  {
-    id: "login",
-    name: "Login",
-    ref: "/login",
-  },
+    id: "sobre",
+    name: "Sobre",
+    ref: "#sobre",
+  }
 ];
 
 export const dashboardNavLinks = [

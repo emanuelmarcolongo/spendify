@@ -14,7 +14,10 @@ export default function Home() {
     <main className="">
       {/* @ts-expect-error Async Server Component */}
       <HomeNavbar></HomeNavbar>
-      <div className={`bg-primary1 ${styles.flexStart} min-h-screen`}>
+      <div
+        id="inicio"
+        className={`bg-primary1 ${styles.flexStart} min-h-screen`}
+      >
         <div className={`${styles.boxWidth}`}>
           <Hero />
         </div>

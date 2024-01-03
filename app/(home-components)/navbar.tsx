@@ -7,7 +7,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../components/ui/dropdown";
-import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { navLinks } from "../constants";
@@ -49,14 +48,18 @@ export default async function HomeNavbar() {
                     </a>
                   </DropdownMenuItem>
                 ))}
-
-                {session?.user && (
-                  <DropdownMenuItem>
-                    <Link className="w-full" href={"/dashboard"}>
-                      Dashboard
-                    </Link>
-                  </DropdownMenuItem>
-                )}
+                <DropdownMenuItem>
+                  {session?.user && (
+                    <a className="w-full" href={`/dashboard`}>
+                      Entrar
+                    </a>
+                  )}
+                  {!session?.user && (
+                    <a className="w-full" href={`/login`}>
+                      Entrar
+                    </a>
+                  )}
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -74,7 +77,12 @@ export default async function HomeNavbar() {
             ))}
             {session?.user && (
               <a className="hover:text-tertiary" href={`/dashboard`}>
-                Dashboard
+                Entrar
+              </a>
+            )}
+            {!session?.user && (
+              <a className="hover:text-tertiary" href={`/login`}>
+                Entrar
               </a>
             )}
           </div>
