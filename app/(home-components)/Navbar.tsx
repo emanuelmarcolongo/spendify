@@ -65,7 +65,7 @@ export default async function HomeNavbar() {
           </div>
 
           {/* nav menu para large devices */}
-          <div className="hidden md:inline-flex items-center md:w-[500px] text-white font-bold justify-between">
+          <div className="hidden md:inline-flex items-center space-x-10 text-white font-bold justify-between">
             {navLinks?.map((navlink, idx) => (
               <a
                 className="hover:text-tertiary"

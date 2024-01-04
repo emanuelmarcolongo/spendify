@@ -6,10 +6,11 @@ import ActionButton from "./ActionButton";
 const Features = () => {
   return (
     <section
+      id="sobre"
       className={`bg-primary1 ${styles.flexStart} min-h-screen pt-[100px]`}
     >
       <ul className={` ${styles.boxWidth} space-y-10 xl:px-0 sm:px-16 px-6`}>
-        <h1 id="sobre" className="text-white font-bold text-3xl mb-12">
+        <h1 className="text-white font-bold text-3xl mb-12">
           O que<br></br> ofereçemos?
         </h1>
         {features.map((feature, idx) => (

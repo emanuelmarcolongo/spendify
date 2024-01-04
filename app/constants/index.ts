@@ -4,12 +4,7 @@ export const navLinks = [
   {
     id: "home",
     name: "Início",
-    ref: "#inicio",
-  },
-  {
-    id: "sobre",
-    name: "Sobre",
-    ref: "#sobre",
+    ref: "/",
   }
 ];
 
