@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Transaction, transactionData } from "@/lib/types";
-import { TimeFilter } from "@/app/dashboard/(dashboard-components)/timeFilter";
+import { TimeFilter } from "@/app/dashboard/(dashboard-components)/TimeFilter";
 import { TransactionComponent } from "./transactionComponent";
 
 export default function Transactions({ transactions }: transactionData) {
@@ -82,7 +82,6 @@ export default function Transactions({ transactions }: transactionData) {
         timeFilteredTransactions = filteredTransactions;
     }
   }
-
 
   return (
     <div className="flex flex-col w-full mx-auto bg-white lg:max-w-full rounded-xl p-10">
