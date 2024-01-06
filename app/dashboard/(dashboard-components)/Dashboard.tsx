@@ -4,10 +4,10 @@ import weekofYear from "dayjs/plugin/weekOfYear";
 import dayjs from "dayjs";
 import { transactionData } from "../../../lib/types";
 import { useState } from "react";
-import { UserInfo } from "./userInfo";
-import { ExpensesByCategory } from "./expenses-by-category";
-import { TimeFilter } from "./timeFilter";
+import { BalanceInformation } from "./BalanceInformation";
+import { TimeFilter } from "./TimeFilter";
 import styles from "@/app/styles";
+import { ExpensesGraphic } from "./ExpensesGraphic";
 
 export function DashboardComponent({ transactions }: transactionData) {
   const [time, setTime] = useState<string>("month");
@@ -43,8 +43,8 @@ export function DashboardComponent({ transactions }: transactionData) {
         <TimeFilter time={time} setTime={setTime} />
       </div>
 
-      <UserInfo transactions={timeFilterTransactions} />
-      <ExpensesByCategory transactions={timeFilterTransactions} />
+      <BalanceInformation transactions={timeFilterTransactions} />
+      <ExpensesGraphic transactions={timeFilterTransactions} />
     </div>
   );
 }

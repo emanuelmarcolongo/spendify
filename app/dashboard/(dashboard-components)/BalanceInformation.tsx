@@ -4,8 +4,9 @@ import Link from "next/link";
 import { transactionData } from "../../../lib/types";
 import { TransactionComponent } from "../transactions/(transaction-components)/transactionComponent";
 import ActionButton from "@/app/(home-components)/ActionButton";
+import { calculateUserBalance } from "@/app/utils/financeUtils";
 
-export function UserInfo({ transactions }: transactionData) {
+const BalanceInformation = ({ transactions }: transactionData) => {
   const { userBalance, income, spent } = calculateUserBalance({ transactions });
 
   return (
@@ -41,7 +42,7 @@ export function UserInfo({ transactions }: transactionData) {
       <LatestTransactions transactions={transactions} />
     </>
   );
-}
+};
 
 const LatestTransactions = ({ transactions }: transactionData) => {
   return (
@@ -77,25 +78,4 @@ const LatestTransactions = ({ transactions }: transactionData) => {
   );
 };
 
-function calculateUserBalance({ transactions }: transactionData) {
-  let userBalance = 0;
-  let income = 0;
-  let spent = 0;
-
-  transactions?.forEach((transaction) => {
-    const { type, value } = transaction;
-    if (type === "entrada") {
-      userBalance += value;
-      income += value;
-    } else if (type === "saida") {
-      userBalance -= value;
-      spent += value;
-    }
-  });
-
-  return {
-    userBalance: (userBalance / 100).toFixed(2),
-    income: (income / 100).toFixed(2),
-    spent: (spent / 100).toFixed(2),
-  };
-}
+export { BalanceInformation };

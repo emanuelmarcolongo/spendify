@@ -1,4 +1,4 @@
-import DashboardNavbar from "./navbar";
+import DashboardNavbar from "./Navbar";
 
 export default function DashboardLoadingSkeleton() {
   return (

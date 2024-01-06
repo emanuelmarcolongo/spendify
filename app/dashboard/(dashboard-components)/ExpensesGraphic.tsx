@@ -1,7 +1,8 @@
+import { getCategoryExpenses } from "@/app/utils/financeUtils";
 import { transactionData } from "../../../lib/types";
 import { Progress } from "@/components/ui/progress";
 
-export function ExpensesByCategory({ transactions }: transactionData) {
+export function ExpensesGraphic({ transactions }: transactionData) {
   const categoryExpenses = new Map<string, number>();
   let totalValue = 0;
   const categoryExpensesList = [];

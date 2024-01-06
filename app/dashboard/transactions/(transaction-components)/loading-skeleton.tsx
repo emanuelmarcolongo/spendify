@@ -1,5 +1,5 @@
-import { TimeFilterLoadingSkeleton } from "../../(dashboard-components)/loading-skeleton";
-import DashboardNavbar from "../../(dashboard-components)/navbar";
+import { TimeFilterLoadingSkeleton } from "../../(dashboard-components)/LoadingSkeleton";
+import DashboardNavbar from "../../(dashboard-components)/Navbar";
 
 export default function TransactionsLoadingSkeleton() {
   return (
