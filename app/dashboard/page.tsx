@@ -13,7 +13,7 @@ export default async function DashboardPage() {
   return (
     <>
       <DashboardNavbar />
-      <div className="bg-[#E2E2E4] bg-opacity-30 lg:max-w-[1280px] mt-[100px] mx-auto">
+      <div className="bg-primary1  lg:max-w-[1280px] mt-[100px] mx-auto">
         <DashboardComponent transactions={data} />
       </div>
     </>

@@ -1,12 +1,13 @@
 "use client";
 
-import weekofYear from "dayjs/plugin/weekOfYear"
+import weekofYear from "dayjs/plugin/weekOfYear";
 import dayjs from "dayjs";
 import { transactionData } from "../../../lib/types";
 import { useState } from "react";
 import { UserInfo } from "./userInfo";
 import { ExpensesByCategory } from "./expenses-by-category";
 import { TimeFilter } from "./timeFilter";
+import styles from "@/app/styles";
 
 export function DashboardComponent({ transactions }: transactionData) {
   const [time, setTime] = useState<string>("month");
@@ -37,15 +38,13 @@ export function DashboardComponent({ transactions }: transactionData) {
       : [];
 
   return (
-    <div className="space-y-10 p-10 bg-white my-10 rounded-xl">
-      <div className="lg:w-[50%] mx-auto">
+    <div className={`${styles.paddingX}`}>
+      <div className="mx-auto">
         <TimeFilter time={time} setTime={setTime} />
       </div>
-     
-      <div className="space-y-10">
-        <UserInfo transactions={timeFilterTransactions} />
-        <ExpensesByCategory transactions={timeFilterTransactions} />
-      </div>
+
+      <UserInfo transactions={timeFilterTransactions} />
+      <ExpensesByCategory transactions={timeFilterTransactions} />
     </div>
   );
 }

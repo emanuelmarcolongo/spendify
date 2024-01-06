@@ -13,7 +13,7 @@ export function ExpensesByCategory({ transactions }: transactionData) {
         categoryExpenses.set(category, value);
         totalValue += value;
       } else if (categoryExpenses.has(category)) {
-        categoryExpenses.set(category, (categoryExpenses.get(category))! + value);
+        categoryExpenses.set(category, categoryExpenses.get(category)! + value);
         totalValue += value;
       }
     }
@@ -27,12 +27,14 @@ export function ExpensesByCategory({ transactions }: transactionData) {
 
   return (
     <>
-      <div className="flex w-full mx-auto flex-col text-black rounded-xl text-start gap-10 justify-center items-center lg:w-[50%]">
-        <h1 className="text-xl text-black flex-start font-bold self-start">Gastos por Categorias</h1>
-        <div className="w-full flex flex-col space-y-2 text-start">
+      <div className="flex w-full mx-auto flex-col text-white rounded-xl text-start gap-10 justify-center mt-40 items-center mb-64 ">
+        <h1 className=" flex-start font-bold self-start">
+          Gastos por Categorias:
+        </h1>
+        <ul className="w-full flex flex-col text-start  ring-1 ring-primary rounded-xl ">
           {categoryExpensesList?.map((expense) => (
-            <div
-              className=" font-semibold text-white bg-darkGray ring-2 ring-primary drop-shadow-xl p-2 space-y-2 rounded-xl"
+            <li
+              className=" font-semibold text-white space-y-2  p-4 "
               key={expense.category}
             >
               <div className="flex justify-between px-5">
@@ -40,20 +42,22 @@ export function ExpensesByCategory({ transactions }: transactionData) {
                   {expense.category.charAt(0).toUpperCase()}
                   {expense.category.slice(1)}
                 </p>
-                <p>{Math.round((expense.value * 100) / totalValue)}%</p>
-                <p className="ml-6">
-                  
+                <p className="text-tertiary">
+                  {Math.round((expense.value * 100) / totalValue)}%
+                </p>
+                <p className="ml-6 text-tertiary">
                   R$ {(expense.value / 100).toFixed(2)}
                 </p>
               </div>
-              <div className="flex gap-9 px-5 items-center font-bold">
+              <div className="flex gap-9 px-5  items-center font-bold">
                 <Progress
                   value={Math.round((expense.value * 100) / totalValue)}
                 />
               </div>
-            </div>
+              <div className="h-[1px] bg-tertiary bg-opacity-20 w-4/5 mx-auto"></div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </>
   );

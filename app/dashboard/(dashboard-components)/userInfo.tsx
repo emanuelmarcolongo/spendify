@@ -3,45 +3,61 @@
 import Link from "next/link";
 import { transactionData } from "../../../lib/types";
 import { TransactionComponent } from "../transactions/(transaction-components)/transactionComponent";
+import ActionButton from "@/app/(home-components)/ActionButton";
 
 export function UserInfo({ transactions }: transactionData) {
   const { userBalance, income, spent } = calculateUserBalance({ transactions });
 
   return (
-    <div className="flex mx-auto space-y-2 gap-10 flex-col justify-center items-center lg:w-[50%]">
-      <div className="rounded-xl w-full h-[150px] flex flex-col items-center justify-center p-10 space-y-2 ring-2 ring-black bg-primary text-black  font-extrabold text-lg">
-        <p>Saldo</p>
-        <p>R$ {userBalance}</p>
-      </div>
+    <>
+      <div className="flex font-bold text-sm md:text-base">
+        <div className="flex w-full md:space-x-16 space-x-6 ">
+          <div className="text-white">
+            <p>Saldo:</p>
+            <p>R$ {userBalance}</p>
+          </div>
 
-      <div className="flex items-center w-full justify-around h-[150px] gap-10">
-        <div className="rounded-xl w-full flex flex-col h-[150px] p-10 space-y-2 ring-2 ring-black bg-secondary text-black  font-extrabold text-lg">
-          <p>Entrada</p>
-          <p> R$ {income}</p>
+          <div className="text-white">
+            <p>Entradas:</p>
+            <p className="text-positiveBalance"> R$ {income}</p>
+          </div>
+
+          <div className="text-white">
+            <p>Saída:</p>
+            <p className="text-negativeBalance">R$ {spent}</p>
+          </div>
         </div>
+        <Link
+          href={"/dashboard/transactions"}
+          className="text-white hover:underline"
+        >
+          Ver Extrato
+        </Link>
+      </div>
+      <ActionButton
+        innerText="Adicionar Transação"
+        navigationRef="/dashboard/transactions/add"
+      />
+      <LatestTransactions transactions={transactions} />
+    </>
+  );
+}
 
-        <div className="rounded-xl w-full ring-2 ring-black h-[150px] flex flex-col p-10 space-y-2 bg-secondary text-black  font-extrabold text-lg">
-          <p>Saída</p>
-          <p>R$ {spent}</p>
-        </div>
+const LatestTransactions = ({ transactions }: transactionData) => {
+  return (
+    <>
+      <div className="flex justify-between w-full mt-16 text-white font-bold mb-8">
+        <p className="">Ultimas transações:</p>
+        <Link href={"/dashboard/transactions"}>
+          <p className=" text-white hover:underline">Ver todas</p>
+        </Link>
       </div>
 
-
-      <div className="flex justify-between w-full">
-          <p className="text-xl font-bold">Ultimas transações</p>
-          <Link href={"/dashboard/transactions"}>
-            <p className="text-primary text-xl font-bold hover:underline">
-              Ver todas
-            </p>
-          </Link>
-      </div>
-      <div className="max-h-[350px] w-full space-y-1.5 rounded-xl">
-        
-
-        <div className="max-h-[300px] border-2 border-darkGray rounded-xl overflow-hidden space-y-1">
-          {transactions &&
-            transactions?.map((i) => {
-              return (
+      <div className="max-h-[300px] border-[1px] border-primary rounded-xl overflow-hidden space-y-1">
+        {transactions &&
+          transactions?.map((i) => {
+            return (
+              <>
                 <TransactionComponent
                   key={i.id}
                   id={i.id}
@@ -52,13 +68,14 @@ export function UserInfo({ transactions }: transactionData) {
                   category={i.category}
                   createdAt={i.createdAt}
                 />
-              );
-            })}
-        </div>
+                <div className="h-[1px] bg-tertiary bg-opacity-20 w-4/5 mx-auto"></div>
+              </>
+            );
+          })}
       </div>
-    </div>
+    </>
   );
-}
+};
 
 function calculateUserBalance({ transactions }: transactionData) {
   let userBalance = 0;

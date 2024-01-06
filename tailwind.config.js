@@ -21,6 +21,8 @@ module.exports = {
       darkGray: "#252525",
       primary1: "#00040f",
       tertiary: "#aaa6c3",
+      negativeBalance: "#F87171",
+      positiveBalance: "#5CB255",
     },
     extend: {
       dropShadow: {
