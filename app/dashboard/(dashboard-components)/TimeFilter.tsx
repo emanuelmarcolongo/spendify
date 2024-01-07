@@ -1,3 +1,11 @@
+import { timefilters } from "@/app/constants";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@radix-ui/react-select";
 import { Dispatch, SetStateAction } from "react";
 
 const TimeFilter = ({
@@ -9,50 +17,16 @@ const TimeFilter = ({
 }) => {
   return (
     <div className="flex max-w-full justify-between space-x-5 font-bold py-10 text-white text-sm md:text-base">
-      <button
-        onClick={() => setTime("all")}
-        className={`
-          rounded-lg p-1 w-15 
-            ${time === "all" && "underline"}`}
-      >
-        Todas
-      </button>
-
-      <button
-        onClick={() => setTime("year")}
-        className={`
+      {timefilters.map((filter, idx) => (
+        <button
+          onClick={() => setTime(filter.name)}
+          className={`
           rounded-lg p-1 w-15
-            ${time === "year" && "underline"}`}
-      >
-        Esse ano
-      </button>
-
-      <button
-        onClick={() => setTime("3months")}
-        className={`
-          rounded-lg p-1 w-15
-            ${time === "3months" && "underline"}`}
-      >
-        Ultimos 3 meses
-      </button>
-
-      <button
-        onClick={() => setTime("month")}
-        className={`
-          rounded-lg p-1 w-15
-            ${time === "month" && "underline"}`}
-      >
-        Esse mês
-      </button>
-
-      <button
-        onClick={() => setTime("week")}
-        className={`
-          rounded-lg p-1 w-15
-            ${time === "week" && "underline"}`}
-      >
-        Essa semana
-      </button>
+            ${time === filter.name && "underline"}`}
+        >
+          {filter.innerText}
+        </button>
+      ))}
     </div>
   );
 };
