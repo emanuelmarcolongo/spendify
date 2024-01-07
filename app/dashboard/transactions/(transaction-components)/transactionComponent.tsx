@@ -52,12 +52,16 @@ export function TransactionComponent({
           {date} | {hour}
         </p>
       </div>
-      <div className=" text-tertiary">
+      <div className=" text-tertiary ">
         {description ? (
           description.length < 20 ? (
-            <p className="text-sm">{description}</p>
+            <p className="text-sm   text-transparent sm:text-tertiary">
+              {description}
+            </p>
           ) : (
-            <p className="text-sm text-blue-600">ver detalhes</p>
+            <p className="text-sm text-blue-600 text-transparent sm:text-tertiary">
+              ver detalhes
+            </p>
           )
         ) : (
           <p>&nbsp;</p>

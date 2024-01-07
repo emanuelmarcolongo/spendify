@@ -1,6 +1,5 @@
 "use client";
 
-import dayjs from "dayjs";
 import { useState } from "react";
 import {
   Select,
@@ -9,79 +8,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Transaction, transactionData } from "@/lib/types";
+import { transactionData } from "@/lib/types";
 import { TimeFilter } from "@/app/dashboard/(dashboard-components)/TimeFilter";
 import { TransactionComponent } from "./transactionComponent";
+import { useFilter, useTimeFilter } from "@/app/utils/filters";
+import { filters } from "@/app/constants";
 
-export default function Transactions({ transactions }: transactionData) {
+const Transactions = ({ transactions }: transactionData) => {
   const [filter, setFilter] = useState<string>("");
   const [time, setTime] = useState<string>("month");
-  var weekOfYear = require("dayjs/plugin/weekOfYear");
-  dayjs.extend(weekOfYear);
 
-  let filteredTransactions: string | Transaction[] = [];
-
-  if (transactions !== undefined && transactions.length > 0) {
-    switch (filter) {
-      case "oldest":
-        filteredTransactions = [...transactions].sort((a, b) => a.id - b.id);
-        break;
-      case "latest":
-        filteredTransactions = [...transactions].sort((a, b) => b.id - a.id);
-        break;
-      case "highest":
-        filteredTransactions = [...transactions].sort(
-          (a, b) => b.value - a.value
-        );
-        break;
-      case "lowest":
-        filteredTransactions = [...transactions].sort(
-          (a, b) => a.value - b.value
-        );
-        break;
-      case "income":
-        filteredTransactions = [...transactions].filter(
-          (i) => i.type === "entrada"
-        );
-        break;
-      case "spent":
-        filteredTransactions = [...transactions].filter(
-          (i) => i.type === "saida"
-        );
-        break;
-      default:
-        filteredTransactions = transactions;
-    }
-  }
-
-  let timeFilteredTransactions: Transaction[] = [];
-
-  if (filteredTransactions !== undefined && filteredTransactions.length > 0) {
-    switch (time) {
-      case "month":
-        timeFilteredTransactions = [...filteredTransactions].filter(
-          (i) => dayjs(i.createdAt).month() === dayjs().month()
-        );
-        break;
-      case "week":
-        timeFilteredTransactions = [...filteredTransactions].filter(
-          (i) => dayjs(i.createdAt).week() === dayjs().week()
-        );
-        break;
-      case "3months":
-        timeFilteredTransactions = [...filteredTransactions].filter(
-          (i) => dayjs(i.createdAt).month() >= dayjs().month() - 2
-        );
-        break;
-      case "year":
-        timeFilteredTransactions = [...filteredTransactions].filter(
-          (i) => dayjs(i.createdAt).year() >= dayjs().year() - 2
-        );
-        break;
-      default:
-        timeFilteredTransactions = filteredTransactions;
-    }
-  }
+  const timeFilteredTransactions = useTimeFilter({ transactions, time });
+  const filteredTransactions = useFilter({ timeFilteredTransactions, filter });
 
   return (
     <div className="flex flex-col w-full mx-auto bg-white lg:max-w-full rounded-xl p-10">
@@ -94,12 +32,11 @@ export default function Transactions({ transactions }: transactionData) {
                 <SelectValue placeholder="Ordenar Transações" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="latest">Recentes</SelectItem>
-                <SelectItem value="oldest">Antigas</SelectItem>
-                <SelectItem value="highest">Maior valor</SelectItem>
-                <SelectItem value="lowest">Menor valor</SelectItem>
-                <SelectItem value="income">Entrada</SelectItem>
-                <SelectItem value="spent">Saída</SelectItem>
+                {filters.map((filter, idx) => (
+                  <SelectItem key={filter.name + idx} value={filter.name}>
+                    {filter.innerText}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -108,8 +45,8 @@ export default function Transactions({ transactions }: transactionData) {
         <TimeFilter time={time} setTime={setTime} />
 
         <div className="space-y-1 p-2 mb-11 border-2 border-darkGray rounded-xl">
-          {timeFilteredTransactions &&
-            timeFilteredTransactions?.map((i) => {
+          {filteredTransactions &&
+            filteredTransactions?.map((i) => {
               return (
                 <TransactionComponent
                   key={i.id}
@@ -127,4 +64,6 @@ export default function Transactions({ transactions }: transactionData) {
       </div>
     </div>
   );
-}
+};
+
+export default Transactions;

@@ -1,10 +1,14 @@
 
 import { features } from "./features";
 import { dashboardNavLinks, navLinks } from "./navlinks";
-import { timefilters } from "./timeFilters";
+import { filters, timefilters } from "./filter-options";
 
 
 
-
-
-export {dashboardNavLinks, navLinks, features, timefilters}
+export {
+    dashboardNavLinks,
+    navLinks,
+    features, 
+    timefilters, 
+    filters
+}
