@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from "react";
 
-export function TimeFilter({
+const TimeFilter = ({
   time,
   setTime,
 }: {
   time: string;
   setTime: Dispatch<SetStateAction<string>>;
-}) {
+}) => {
   return (
     <div className="flex max-w-full justify-between space-x-5 font-bold py-10 text-white text-sm md:text-base">
       <button
@@ -55,4 +55,6 @@ export function TimeFilter({
       </button>
     </div>
   );
-}
+};
+
+export { TimeFilter };

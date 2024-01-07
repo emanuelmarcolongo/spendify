@@ -1,6 +1,6 @@
 import DashboardNavbar from "./Navbar";
 
-export default function DashboardLoadingSkeleton() {
+const DashboardLoadingSkeleton = () => {
   return (
     <>
       <DashboardNavbar></DashboardNavbar>
@@ -15,7 +15,7 @@ export default function DashboardLoadingSkeleton() {
       </div>
     </>
   );
-}
+};
 
 export function TimeFilterLoadingSkeleton() {
   return (
@@ -45,7 +45,7 @@ export function TimeFilterLoadingSkeleton() {
   );
 }
 
-function UserInfoLoadingSkeleton() {
+const UserInfoLoadingSkeleton = () => {
   return (
     <div className="flex mx-auto space-y-2 gap-10 flex-col justify-center items-center lg:w-[50%]">
       <div className="rounded-xl w-full h-[150px] flex flex-col items-center justify-center p-10 space-y-2 bg-gray-300 animate-pulse text-transparent  font-extrabold text-lg"></div>
@@ -73,4 +73,6 @@ function UserInfoLoadingSkeleton() {
       </div>
     </div>
   );
-}
+};
+
+export default DashboardLoadingSkeleton;

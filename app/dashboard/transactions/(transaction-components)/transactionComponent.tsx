@@ -15,8 +15,6 @@ export function TransactionComponent({
   require("dayjs/locale/pt-br");
   const router = useRouter();
 
-  console.log(category);
-
   async function handleDelete(transactionId: number) {
     const data = {
       transactionId,

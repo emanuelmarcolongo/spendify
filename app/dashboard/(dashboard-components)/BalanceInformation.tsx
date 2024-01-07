@@ -60,7 +60,7 @@ const LatestTransactions = ({ transactions }: transactionData) => {
             return (
               <>
                 <TransactionComponent
-                  key={i.id}
+                  key={i.createdAt}
                   id={i.id}
                   userId={i.userId}
                   type={i.type}

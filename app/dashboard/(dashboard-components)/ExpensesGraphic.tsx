@@ -2,7 +2,7 @@ import { getCategoryExpenses } from "@/app/utils/financeUtils";
 import { transactionData } from "../../../lib/types";
 import { Progress } from "@/components/ui/progress";
 
-export function ExpensesGraphic({ transactions }: transactionData) {
+const ExpensesGraphic = ({ transactions }: transactionData) => {
   const categoryExpenses = new Map<string, number>();
   let totalValue = 0;
   const categoryExpensesList = [];
@@ -33,10 +33,10 @@ export function ExpensesGraphic({ transactions }: transactionData) {
           Gastos por Categorias:
         </h1>
         <ul className="w-full flex flex-col text-start  ring-1 ring-primary rounded-xl ">
-          {categoryExpensesList?.map((expense) => (
+          {categoryExpensesList?.map((expense, idx) => (
             <li
               className=" font-semibold text-white space-y-2  p-4 "
-              key={expense.category}
+              key={`${expense.category + idx}`}
             >
               <div className="flex justify-between px-5">
                 <p className="space-x-5 w-40">
@@ -62,4 +62,6 @@ export function ExpensesGraphic({ transactions }: transactionData) {
       </div>
     </>
   );
-}
+};
+
+export { ExpensesGraphic };

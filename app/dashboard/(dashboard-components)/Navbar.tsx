@@ -13,7 +13,7 @@ import { dashboardNavLinks } from "@/app/constants";
 import styles from "@/app/styles";
 import SpendifyLogo from "@/app/(home-components)/Logo";
 
-export default function DashboardNavbar() {
+const DashboardNavbar = () => {
   return (
     <nav
       className={`w-full py-3 ${styles.paddingX} bg-primary1 mx-auto drop-shadow-primary fixed top-0 z-10`}
@@ -64,4 +64,6 @@ export default function DashboardNavbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default DashboardNavbar;
