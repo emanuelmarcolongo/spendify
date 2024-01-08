@@ -1,11 +1,4 @@
 import { timefilters } from "@/app/constants";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@radix-ui/react-select";
 import { Dispatch, SetStateAction } from "react";
 
 const TimeFilter = ({

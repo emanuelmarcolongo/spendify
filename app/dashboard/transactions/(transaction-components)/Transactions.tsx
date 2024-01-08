@@ -24,11 +24,9 @@ const Transactions = ({ transactions }: transactionData) => {
   return (
     <div className="flex flex-col w-full mx-auto bg-primary1 lg:max-w-full rounded-xl p-10">
       <div className="mx-auto w-full h-full">
-        <div className="items-center justify-center rounded-xl my-10 lg:flex">
-          <h1 className="font-bold text-xl text-white lg:w-[50%]">
-            Minhas transações
-          </h1>
-          <div className="lg:w-[50%]">
+        <div className="items-center justify-between rounded-xl my-10 flex">
+          <h1 className="font-bold text-xl text-white ">Minhas transações</h1>
+          <div className="w-[250px]">
             <Select required onValueChange={(value) => setFilter(value)}>
               <SelectTrigger>
                 <SelectValue placeholder="Ordenar Transações" />

@@ -15,7 +15,6 @@ export default async function DashboardPage() {
     <>
       <DashboardNavbar />
       <div className="bg-primary1  lg:max-w-[1280px] mt-[100px] mx-auto">
-        {/* <DashboardLoadingSkeleton></DashboardLoadingSkeleton> */}
         <DashboardComponent transactions={data} />
       </div>
     </>
