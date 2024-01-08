@@ -4,14 +4,14 @@ import { Transaction } from "../../../../lib/types";
 import dayjs from "dayjs";
 import styles from "@/app/styles";
 
-export function TransactionComponent({
+const TransactionComponent = ({
   id,
   type,
   value,
   category,
   description,
   createdAt,
-}: Transaction): JSX.Element {
+}: Transaction): JSX.Element => {
   require("dayjs/locale/pt-br");
   const router = useRouter();
 
@@ -86,4 +86,6 @@ export function TransactionComponent({
       </div>
     </div>
   );
-}
+};
+
+export { TransactionComponent };

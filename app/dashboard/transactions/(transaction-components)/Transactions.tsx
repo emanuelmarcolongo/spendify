@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/select";
 import { transactionData } from "@/lib/types";
 import { TimeFilter } from "@/app/dashboard/(dashboard-components)/TimeFilter";
-import { TransactionComponent } from "./transactionComponent";
+import { TransactionComponent } from "./TransactionComponent";
 import { useFilter, useTimeFilter } from "@/app/utils/filters";
 import { filters } from "@/app/constants";
 
@@ -22,10 +22,12 @@ const Transactions = ({ transactions }: transactionData) => {
   const filteredTransactions = useFilter({ timeFilteredTransactions, filter });
 
   return (
-    <div className="flex flex-col w-full mx-auto bg-white lg:max-w-full rounded-xl p-10">
-      <div className="lg:w-1/2 mx-auto">
+    <div className="flex flex-col w-full mx-auto bg-primary1 lg:max-w-full rounded-xl p-10">
+      <div className="mx-auto w-full h-full">
         <div className="items-center justify-center rounded-xl my-10 lg:flex">
-          <h1 className="font-bold text-xl lg:w-[50%]">Minhas transações</h1>
+          <h1 className="font-bold text-xl text-white lg:w-[50%]">
+            Minhas transações
+          </h1>
           <div className="lg:w-[50%]">
             <Select required onValueChange={(value) => setFilter(value)}>
               <SelectTrigger>
@@ -44,20 +46,23 @@ const Transactions = ({ transactions }: transactionData) => {
 
         <TimeFilter time={time} setTime={setTime} />
 
-        <div className="space-y-1 p-2 mb-11 border-2 border-darkGray rounded-xl">
+        <div className="space-y-1 p-2 mb-11 border-2 border-tertiary rounded-xl h-full">
           {filteredTransactions &&
             filteredTransactions?.map((i) => {
               return (
-                <TransactionComponent
-                  key={i.id}
-                  id={i.id}
-                  userId={i.userId}
-                  type={i.type}
-                  value={i.value}
-                  description={i.description}
-                  category={i.category}
-                  createdAt={i.createdAt}
-                />
+                <>
+                  <TransactionComponent
+                    key={i.id}
+                    id={i.id}
+                    userId={i.userId}
+                    type={i.type}
+                    value={i.value}
+                    description={i.description}
+                    category={i.category}
+                    createdAt={i.createdAt}
+                  />
+                  <div className="h-[1px] bg-tertiary bg-opacity-20 w-4/5 mx-auto"></div>
+                </>
               );
             })}
         </div>

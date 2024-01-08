@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { transactionData } from "../../../lib/types";
-import { TransactionComponent } from "../transactions/(transaction-components)/transactionComponent";
+import { TransactionComponent } from "../transactions/(transaction-components)/TransactionComponent";
 import ActionButton from "@/app/(home-components)/ActionButton";
 import { calculateUserBalance } from "@/app/utils/financeUtils";
 
@@ -54,13 +54,13 @@ const LatestTransactions = ({ transactions }: transactionData) => {
         </Link>
       </div>
 
-      <div className="max-h-[300px] border-[1px] border-primary rounded-xl overflow-hidden space-y-1">
+      <div className="max-h-[300px] border-[1px] border-tertiary rounded-xl overflow-hidden space-y-1">
         {transactions &&
           transactions?.map((i) => {
             return (
               <>
                 <TransactionComponent
-                  key={i.createdAt}
+                  key={i.id}
                   id={i.id}
                   userId={i.userId}
                   type={i.type}

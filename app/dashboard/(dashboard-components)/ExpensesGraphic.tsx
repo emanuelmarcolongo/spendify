@@ -13,7 +13,7 @@ const ExpensesGraphic = ({ transactions }: transactionData) => {
         <h1 className=" flex-start font-bold self-start">
           Gastos por Categorias:
         </h1>
-        <ul className="w-full flex flex-col text-start  ring-1 ring-primary rounded-xl ">
+        <ul className="w-full flex flex-col text-start  ring-1 ring-tertiary rounded-xl ">
           {categoryExpensesList?.map((expense, idx) => (
             <li
               className=" font-semibold text-white space-y-2  p-4 "
