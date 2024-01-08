@@ -51,7 +51,7 @@ export default function AddTransactionForm() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    setDisabled(true)
+    setDisabled(true);
     try {
       const options = {
         method: "post",
@@ -61,7 +61,7 @@ export default function AddTransactionForm() {
       const res = await fetch("/api/transactions", options);
 
       if (res.status === 200) {
-        setDisabled(false)
+        setDisabled(false);
         alert(await res.json());
         setForm({
           value: 0,
@@ -70,11 +70,11 @@ export default function AddTransactionForm() {
           description: "",
         });
       } else if (res.status !== 200) {
-        setDisabled(false)
+        setDisabled(false);
         setError(await res.json());
       }
     } catch (error: any) {
-      setDisabled(false)
+      setDisabled(false);
       setError(error?.message);
     }
   }
@@ -82,7 +82,7 @@ export default function AddTransactionForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="space-y-8 font-bold w-full sm:w-[400px]"
+      className="space-y-8 font-bold w-full text-white sm:w-[400px]"
     >
       <div className="grid w-full gap-2  items-center">
         <Label htmlFor="value">Valor</Label>
@@ -135,7 +135,9 @@ export default function AddTransactionForm() {
             </SelectTrigger>
             <SelectContent>
               {expensesCategories?.map((category, idx) => (
-                <SelectItem key={idx} value={category}>{category}</SelectItem>
+                <SelectItem key={idx} value={category}>
+                  {category}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -154,7 +156,9 @@ export default function AddTransactionForm() {
             </SelectTrigger>
             <SelectContent>
               {incomeCategories?.map((category, idx) => (
-                <SelectItem key={idx} value={category}>{category}</SelectItem>
+                <SelectItem key={idx} value={category}>
+                  {category}
+                </SelectItem>
               ))}
             </SelectContent>
           </Select>
@@ -164,7 +168,9 @@ export default function AddTransactionForm() {
       {error && <Alert>{error}</Alert>}
 
       <div className="w-full">
-        <Button disabled={disabled}className="w-full ">Adicionar transação</Button>
+        <Button disabled={disabled} className="w-full ">
+          Adicionar transação
+        </Button>
       </div>
     </form>
   );

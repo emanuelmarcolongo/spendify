@@ -18,7 +18,7 @@ export default function LoginPage() {
           <RobotImage />
         </div>
 
-        <div className="shadow-xl bg-primary1 text-white ring-1 ring-primary   px-8 pb-8 pt-12 space-y-12 rounded-xl mx-auto">
+        <div className="shadow-xl bg-primary1 text-white ring-1 ring-tertiary  px-8 pb-8 pt-12 space-y-12 rounded-xl mx-auto">
           <h1 className="font-semibold text-2xl">Acesse sua conta</h1>
           <LoginForm />
           <p className="text-center  ">
