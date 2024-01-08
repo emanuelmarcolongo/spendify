@@ -1,16 +1,28 @@
+import { timefilters } from "@/app/constants";
 import DashboardNavbar from "./Navbar";
+import styles from "@/app/styles";
 
 const DashboardLoadingSkeleton = () => {
   return (
     <>
-      <DashboardNavbar></DashboardNavbar>
-      <div className="bg-[#E2E2E4] bg-opacity-30 lg:max-w-[1280px] mx-auto">
-        <div className="space-y-10 p-10 bg-white my-10 rounded-xl">
-          <TimeFilterLoadingSkeleton />
+      <div
+        className={`bg-primary1  lg:max-w-[1280px] mt-[100px] mx-auto ${styles.paddingX}`}
+      >
+        <TimeFilterLoadingSkeleton />
 
-          <div className="space-y-10">
-            <UserInfoLoadingSkeleton />
+        <div className="space-y-10">
+          <UserInfoLoadingSkeleton />
+        </div>
+        <div className="text-white mt-60">
+          <div className={`flex justify-between`}>
+            <p className={`${styles.loadingSkeleton} rounded-xl`}>
+              Ultimas transações
+            </p>
+            <p className={`${styles.loadingSkeleton} rounded-xl`}> Ver todas</p>
           </div>
+          <div
+            className={`h-[300px] mt-10 ${styles.loadingSkeleton} rounded-xl`}
+          ></div>
         </div>
       </div>
     </>
@@ -19,59 +31,52 @@ const DashboardLoadingSkeleton = () => {
 
 export function TimeFilterLoadingSkeleton() {
   return (
-    <div className="lg:w-[50%] mx-auto">
-      <div className="flex max-w-full justify-between space-x-5 font-bold py-10">
-        <button className="rounded-lg p-1 w-15 bg-gray-300 animate-pulse text-transparent">
-          Todas
+    <div
+      className={`flex max-w-full justify-between space-x-5 font-bold py-10  text-sm md:text-base`}
+    >
+      {timefilters.map((filter, idx) => (
+        <button
+          className={`
+          rounded-lg p-1 w-15
+          ${styles.loadingSkeleton} 
+          min-w-[70px]
+            `}
+        >
+          {filter.innerText}
         </button>
-
-        <button className="rounded-lg p-1 w-15 bg-gray-300 animate-pulse text-transparent">
-          Esse ano
-        </button>
-
-        <button className="rounded-lg p-1 w-15 bg-gray-300 animate-pulse text-transparent">
-          Ultimos 3 meses
-        </button>
-
-        <button className="rounded-lg p-1 w-15 bg-gray-300 animate-pulse text-transparent">
-          Esse mês
-        </button>
-
-        <button className="rounded-lg p-1 w-15 bg-gray-300 animate-pulse text-transparent">
-          Essa semana
-        </button>
-      </div>
+      ))}
     </div>
   );
 }
 
 const UserInfoLoadingSkeleton = () => {
   return (
-    <div className="flex mx-auto space-y-2 gap-10 flex-col justify-center items-center lg:w-[50%]">
-      <div className="rounded-xl w-full h-[150px] flex flex-col items-center justify-center p-10 space-y-2 bg-gray-300 animate-pulse text-transparent  font-extrabold text-lg"></div>
+    <>
+      <div className="flex font-bold text-sm md:text-base">
+        <div className="flex w-full md:space-x-16 space-x-6 ">
+          <div className={`${styles.loadingSkeleton} min-w-[150px] rounded-xl`}>
+            <p>Saldo:</p>
+            <p>R$ </p>
+          </div>
 
-      <div className="flex items-center w-full justify-around h-[150px] gap-10 ">
-        <div className="rounded-xl w-full flex flex-col h-[150px] p-10 space-y-2 bg-gray-300 animate-pulse text-transparent   font-extrabold text-lg"></div>
+          <div className={`${styles.loadingSkeleton} min-w-[150px] rounded-xl`}>
+            <p>Entradas:</p>
+            <p className="text-transparent"> R$ </p>
+          </div>
 
-        <div className="rounded-xl w-full h-[150px] flex flex-col p-10 space-y-2  bg-gray-300 animate-pulse text-transparent   font-extrabold text-lg"></div>
-      </div>
-
-      <div className="flex justify-between w-full">
-        <p className="text-xl font-bold bg-gray-300 w-1/4 h-7 animate-pulse text-transparent "></p>
-
-        <p className="bg-gray-300 animate-pulse w-1/4 h-7 text-transparent text-xl font-bold hover:underline"></p>
-      </div>
-      <div className="max-h-[350px] w-full space-y-1.5 rounded-xl">
-        <div className="max-h-[300px] rounded-xl overflow-hidden space-y-1">
-          {Array.from({ length: 4 }).map((_, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-300 animate-pulse w-full h-14"
-            ></div>
-          ))}
+          <div className={`${styles.loadingSkeleton} min-w-[150px] rounded-xl`}>
+            <p>Saída:</p>
+            <p>R$ </p>
+          </div>
         </div>
+        <p className={`${styles.loadingSkeleton} min-w-[150px] rounded-xl`}>
+          Ver Extrato
+        </p>
       </div>
-    </div>
+      <button className={`${styles.loadingSkeleton} min-h-[70px] rounded-xl`}>
+        Adicionar Transação
+      </button>
+    </>
   );
 };
 
