@@ -17,7 +17,7 @@ export default function SignUpPage() {
         <div className="sm:block hidden max-w-[480px]">
           <RobotImage />
         </div>
-        <div className="shadow-xl bg-white  px-8 pb-8 pt-12 space-y-12 rounded-xl mx-auto">
+        <div className="shadow-xl bg-primary1 text-white ring-1 ring-primary  px-8 pb-8 pt-12 space-y-12 rounded-xl mx-auto">
           <h1 className="font-semibold text-2xl">Crie sua conta</h1>
           <SignUpForm />
           <p className="text-center">

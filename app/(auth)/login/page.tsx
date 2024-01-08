@@ -18,12 +18,10 @@ export default function LoginPage() {
           <RobotImage />
         </div>
 
-        <div className="shadow-xl bg-white  px-8 pb-8 pt-12 space-y-12 rounded-xl mx-auto">
-          <h1 className="font-semibold text-black sm:text-black text-2xl">
-            Acesse sua conta
-          </h1>
+        <div className="shadow-xl bg-primary1 text-white ring-1 ring-primary   px-8 pb-8 pt-12 space-y-12 rounded-xl mx-auto">
+          <h1 className="font-semibold text-2xl">Acesse sua conta</h1>
           <LoginForm />
-          <p className="text-center text-black sm:text-black">
+          <p className="text-center  ">
             Não tem uma conta?{" "}
             <Link
               className="text-gradient font-bold hover:underline"

@@ -64,14 +64,17 @@ export default function SignUpForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 w-full sm:w-[400px] text-black"
+      className="space-y-8 w-full sm:w-[400px] text-white  bg-primary1"
     >
       <div className="grid w-full  items-center gap-2">
-        <Label htmlFor="name">Nome completo</Label>
+        <Label className="" htmlFor="name">
+          Nome completo
+        </Label>
         <Input
           {...register("name", {
             required: true,
           })}
+          placeholder="Insira seu nome"
           name="name"
           type="text"
         ></Input>
@@ -90,6 +93,7 @@ export default function SignUpForm() {
               message: "Insira um formato de e-mail válido",
             },
           })}
+          placeholder="exemplo@mail.com"
           name="email"
           type="email"
         ></Input>
@@ -108,6 +112,7 @@ export default function SignUpForm() {
             required: true,
           })}
           name="password"
+          placeholder="Insira sua senha"
           type="password"
         ></Input>
         {errors.password?.type === "required" && (
@@ -121,6 +126,7 @@ export default function SignUpForm() {
           {...register("confirmPassword", {
             required: true,
           })}
+          placeholder="Confirme sua senha"
           name="confirmPassword"
           type="password"
         ></Input>

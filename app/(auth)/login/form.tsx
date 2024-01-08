@@ -54,7 +54,7 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="space-y-8 w-full sm:w-[400px] text-black "
+      className="space-y-8 w-full sm:w-[400px] text-white  bg-primary1 placeholder:text-tertiary input:bg-primary1 "
     >
       <div className="grid w-full gap-2 items-center">
         <Label htmlFor="email">E-mail</Label>
