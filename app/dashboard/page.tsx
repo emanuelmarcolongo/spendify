@@ -2,7 +2,6 @@ import { getTransactions } from "@/lib/transactions";
 import type { Metadata } from "next";
 import { DashboardComponent } from "./(dashboard-components)/Dashboard";
 import DashboardNavbar from "./(dashboard-components)/Navbar";
-import DashboardLoadingSkeleton from "./(dashboard-components)/LoadingSkeleton";
 
 export const metadata: Metadata = {
   title: "Dashboard",

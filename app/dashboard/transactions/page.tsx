@@ -3,7 +3,6 @@ import Transactions from "./(transaction-components)/Transactions";
 
 import type { Metadata } from "next";
 import DashboardNavbar from "../(dashboard-components)/Navbar";
-import TransactionsLoadingSkeleton from "./(transaction-components)/loading-skeleton";
 
 export const metadata: Metadata = {
   title: "Transações",
