@@ -27,7 +27,7 @@ const Transactions = ({ transactions }: transactionData) => {
   return (
     <>
       <DashboardNavbar setShowModal={setShowModal} />
-      <div className="flex flex-col w-full mx-auto bg-primary1  rounded-xl p-10 bg-opacity-30 py-10 lg:max-w-[1280px] mt-10">
+      <section className="flex flex-col w-full mx-auto bg-primary1  rounded-xl p-10 bg-opacity-30 py-10 lg:max-w-[1280px] mt-10">
         <div className="mx-auto w-full h-full">
           <div className="items-center justify-between rounded-xl my-10 flex">
             <h1 className="font-bold text-xl text-white ">Minhas transações</h1>
@@ -70,7 +70,7 @@ const Transactions = ({ transactions }: transactionData) => {
               })}
           </ul>
         </div>
-      </div>
+      </section>
     </>
   );
 };

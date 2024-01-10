@@ -17,9 +17,9 @@ export default function Home() {
         id="inicio"
         className={`bg-primary1 ${styles.flexStart} min-h-screen`}
       >
-        <div className={`${styles.boxWidth}`}>
+        <section className={`${styles.boxWidth}`}>
           <Hero />
-        </div>
+        </section>
       </div>
       <Features />
     </main>

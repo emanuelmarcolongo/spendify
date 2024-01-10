@@ -23,7 +23,7 @@ const BalanceInformation = ({
   const { userBalance, income, spent } = calculateUserBalance({ transactions });
 
   return (
-    <>
+    <article>
       <div className="flex font-bold text-sm md:text-base">
         <div className="flex w-full md:space-x-16 space-x-6 ">
           <div className="text-white">
@@ -52,13 +52,13 @@ const BalanceInformation = ({
         Adicionar Transação
       </Button>
       <LatestTransactions transactions={transactions} />
-    </>
+    </article>
   );
 };
 
 const LatestTransactions = ({ transactions }: transactionData) => {
   return (
-    <>
+    <article>
       <div className="flex justify-between w-full mt-16 text-white font-bold mb-8">
         <p className="">Ultimas transações:</p>
         <Link href={"/dashboard/transactions"}>
@@ -85,7 +85,7 @@ const LatestTransactions = ({ transactions }: transactionData) => {
             );
           })}
       </div>
-    </>
+    </article>
   );
 };
 

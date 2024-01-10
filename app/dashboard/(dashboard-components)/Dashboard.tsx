@@ -21,7 +21,7 @@ const DashboardComponent = ({ transactions }: transactionData) => {
   return (
     <>
       <DashboardNavbar setShowModal={setShowModal} />
-      <div
+      <section
         className={`${styles.paddingX} bg-primary1  lg:max-w-[1280px] mt-[100px] mx-auto`}
       >
         <div className="mx-auto">
@@ -34,7 +34,7 @@ const DashboardComponent = ({ transactions }: transactionData) => {
           transactions={timeFilterTransactions}
         />
         <ExpensesGraphic transactions={timeFilterTransactions} />
-      </div>
+      </section>
     </>
   );
 };

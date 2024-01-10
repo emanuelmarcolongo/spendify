@@ -8,7 +8,7 @@ const ExpensesGraphic = ({ transactions }: transactionData) => {
   });
 
   return (
-    <>
+    <article>
       <div className="flex w-full mx-auto flex-col text-white rounded-xl text-start gap-10 justify-center mt-40 items-center mb-64 ">
         <h1 className=" flex-start font-bold self-start">
           Gastos por Categorias:
@@ -41,7 +41,7 @@ const ExpensesGraphic = ({ transactions }: transactionData) => {
           ))}
         </ul>
       </div>
-    </>
+    </article>
   );
 };
 
