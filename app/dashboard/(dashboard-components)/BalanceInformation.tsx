@@ -70,9 +70,8 @@ const LatestTransactions = ({ transactions }: transactionData) => {
         {transactions &&
           transactions?.map((i) => {
             return (
-              <>
+              <div key={i.id}>
                 <TransactionComponent
-                  key={i.id}
                   id={i.id}
                   userId={i.userId}
                   type={i.type}
@@ -82,7 +81,7 @@ const LatestTransactions = ({ transactions }: transactionData) => {
                   createdAt={i.createdAt}
                 />
                 <div className="h-[1px] bg-tertiary bg-opacity-20 w-4/5 mx-auto"></div>
-              </>
+              </div>
             );
           })}
       </div>

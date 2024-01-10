@@ -17,7 +17,7 @@ import SpendifyLogo from "@/app/(home-components)/Logo";
 import { Dispatch, SetStateAction } from "react";
 
 type DashboardNavbarProps = {
-  setShowModal: Dispatch<SetStateAction<boolean>>;
+  setShowModal?: Dispatch<SetStateAction<boolean>>;
 };
 
 const DashboardNavbar = ({ setShowModal }: DashboardNavbarProps) => {
@@ -53,12 +53,14 @@ const DashboardNavbar = ({ setShowModal }: DashboardNavbarProps) => {
                   </DropdownMenuItem>
                 ))}
                 <DropdownMenuItem>
-                  <button
-                    onClick={() => setShowModal(true)}
-                    className="w-full flex items-start"
-                  >
-                    Adicionar
-                  </button>
+                  {setShowModal && (
+                    <button
+                      onClick={() => setShowModal(true)}
+                      className="w-full flex items-start"
+                    >
+                      Adicionar
+                    </button>
+                  )}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -74,13 +76,14 @@ const DashboardNavbar = ({ setShowModal }: DashboardNavbarProps) => {
                 {navlink.name}
               </a>
             ))}
-
-            <button
-              onClick={() => setShowModal(true)}
-              className="hover:text-tertiary"
-            >
-              Adicionar
-            </button>
+            {setShowModal && (
+              <button
+                onClick={() => setShowModal(true)}
+                className="hover:text-tertiary"
+              >
+                Adicionar
+              </button>
+            )}
           </div>
         </div>
       </div>

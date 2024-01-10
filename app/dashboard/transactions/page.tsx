@@ -11,11 +11,5 @@ export const metadata: Metadata = {
 export default async function TransactionPage() {
   const data = await getTransactions();
 
-  return (
-    <>
-      <DashboardNavbar />
-
-      <Transactions transactions={data} />
-    </>
-  );
+  return <Transactions transactions={data} />;
 }

@@ -12,6 +12,7 @@ const TimeFilter = ({
     <div className="flex max-w-full justify-between space-x-5 font-bold py-10 text-white text-sm md:text-base">
       {timefilters.map((filter, idx) => (
         <button
+          key={filter.name}
           onClick={() => setTime(filter.name)}
           className={`
           rounded-lg p-1 w-15

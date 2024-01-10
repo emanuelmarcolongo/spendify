@@ -99,6 +99,7 @@ export default function AddTransactionForm() {
       <div className="grid w-full gap-2 items-center">
         <Label htmlFor="select">Tipo</Label>
         <Select
+          name="select"
           required
           onValueChange={(value) => setForm({ ...form, type: value })}
         >
@@ -114,8 +115,9 @@ export default function AddTransactionForm() {
 
       {form.type === "saida" && (
         <div className="grid w-full gap-2 items-center">
-          <Label htmlFor="category">Categoria</Label>
+          <Label htmlFor="expenses">Categoria</Label>
           <Select
+            name="expenses"
             required
             onValueChange={(value) => setForm({ ...form, category: value })}
           >
@@ -135,8 +137,9 @@ export default function AddTransactionForm() {
 
       {form.type === "entrada" && (
         <div className="grid w-full gap-2 items-center">
-          <Label htmlFor="category">Categoria</Label>
+          <Label htmlFor="income">Categoria</Label>
           <Select
+            name="income"
             required
             onValueChange={(value) => setForm({ ...form, category: value })}
           >

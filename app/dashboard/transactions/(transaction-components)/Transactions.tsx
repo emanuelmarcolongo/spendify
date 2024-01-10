@@ -50,13 +50,12 @@ const Transactions = ({ transactions }: transactionData) => {
           <TimeFilter time={time} setTime={setTime} />
           {showModal && <AddTransactionModal setShowModal={setShowModal} />}
 
-          <div className="space-y-1 p-2 mb-11 border-2 border-tertiary rounded-xl h-full">
+          <ul className="space-y-1 p-2 mb-11 border-2 border-tertiary rounded-xl h-full">
             {filteredTransactions &&
               filteredTransactions?.map((i) => {
                 return (
-                  <>
+                  <li key={i.id}>
                     <TransactionComponent
-                      key={i.id}
                       id={i.id}
                       userId={i.userId}
                       type={i.type}
@@ -66,10 +65,10 @@ const Transactions = ({ transactions }: transactionData) => {
                       createdAt={i.createdAt}
                     />
                     <div className="h-[1px] bg-tertiary bg-opacity-20 w-4/5 mx-auto"></div>
-                  </>
+                  </li>
                 );
               })}
-          </div>
+          </ul>
         </div>
       </div>
     </>
