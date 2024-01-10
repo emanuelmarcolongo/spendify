@@ -29,6 +29,7 @@ export default function AddTransactionForm() {
 
   const router = useRouter();
   const [error, setError] = useState<string | null>(null);
+  const [sucess, setSucess] = useState<string | null>(null);
 
   function handleForm(e: React.ChangeEvent<HTMLInputElement>) {
     setForm({
@@ -39,6 +40,7 @@ export default function AddTransactionForm() {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setSucess(null);
 
     setDisabled(true);
     try {
@@ -51,7 +53,7 @@ export default function AddTransactionForm() {
 
       if (res.status === 200) {
         setDisabled(false);
-        alert(await res.json());
+        setSucess("Transação adicionada com sucesso!");
         setForm({
           value: 0,
           type: "",
@@ -65,7 +67,7 @@ export default function AddTransactionForm() {
       }
     } catch (error: any) {
       setDisabled(false);
-      setError(error?.message);
+      setError("Algo deu errado, tente novamente");
     }
   }
 
@@ -152,13 +154,14 @@ export default function AddTransactionForm() {
         </div>
       )}
 
-      {error && <Alert>{error}</Alert>}
-
       <div className="w-full">
         <Button disabled={disabled} className="w-full ">
           Adicionar transação
         </Button>
       </div>
+
+      {sucess && <p className="text-positiveBalance">{sucess}</p>}
+      {error && <p className="text-negativeBalance">{error}</p>}
     </form>
   );
 }
