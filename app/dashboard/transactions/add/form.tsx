@@ -13,6 +13,10 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {
+  expensesCategories,
+  incomeCategories,
+} from "@/app/constants/transaction-category";
 
 export default function AddTransactionForm() {
   const [disabled, setDisabled] = useState(false);
@@ -24,23 +28,6 @@ export default function AddTransactionForm() {
   });
 
   const router = useRouter();
-  const expensesCategories: string[] = [
-    "Alimentação",
-    "Habitação",
-    "Transporte",
-    "Saúde",
-    "Educação",
-    "Roupas",
-    "Entretenimento",
-    "Compras",
-    "Viagens",
-  ];
-  const incomeCategories: string[] = [
-    "Salário",
-    "Freelance",
-    "Investimentos",
-    "Venda",
-  ];
   const [error, setError] = useState<string | null>(null);
 
   function handleForm(e: React.ChangeEvent<HTMLInputElement>) {
