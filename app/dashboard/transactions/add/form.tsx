@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AddTransactionForm() {
   const [disabled, setDisabled] = useState(false);
@@ -22,6 +23,7 @@ export default function AddTransactionForm() {
     description: "",
   });
 
+  const router = useRouter();
   const expensesCategories: string[] = [
     "Alimentação",
     "Habitação",
@@ -69,6 +71,7 @@ export default function AddTransactionForm() {
           category: "",
           description: "",
         });
+        router.refresh();
       } else if (res.status !== 200) {
         setDisabled(false);
         setError(await res.json());
@@ -80,10 +83,7 @@ export default function AddTransactionForm() {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className="space-y-8 font-bold w-full text-white sm:w-[400px]"
-    >
+    <form onSubmit={onSubmit} className="space-y-8 font-bold w-full text-white">
       <div className="grid w-full gap-2  items-center">
         <Label htmlFor="value">Valor</Label>
         <Input

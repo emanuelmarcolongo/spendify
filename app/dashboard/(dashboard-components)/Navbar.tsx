@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   DropdownMenu,
@@ -12,8 +14,13 @@ import { options } from "@/public/assets";
 import { dashboardNavLinks } from "@/app/constants";
 import styles from "@/app/styles";
 import SpendifyLogo from "@/app/(home-components)/Logo";
+import { Dispatch, SetStateAction } from "react";
 
-const DashboardNavbar = () => {
+type DashboardNavbarProps = {
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+};
+
+const DashboardNavbar = ({ setShowModal }: DashboardNavbarProps) => {
   return (
     <nav
       className={`w-full py-3 ${styles.paddingX} bg-primary1 mx-auto drop-shadow-primary fixed top-0 z-10`}
@@ -45,6 +52,14 @@ const DashboardNavbar = () => {
                     </Link>
                   </DropdownMenuItem>
                 ))}
+                <DropdownMenuItem>
+                  <button
+                    onClick={() => setShowModal(true)}
+                    className="w-full flex items-start"
+                  >
+                    Adicionar
+                  </button>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -59,6 +74,13 @@ const DashboardNavbar = () => {
                 {navlink.name}
               </a>
             ))}
+
+            <button
+              onClick={() => setShowModal(true)}
+              className="hover:text-tertiary"
+            >
+              Adicionar
+            </button>
           </div>
         </div>
       </div>

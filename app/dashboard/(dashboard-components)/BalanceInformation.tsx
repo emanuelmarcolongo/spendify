@@ -1,12 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { transactionData } from "../../../lib/types";
+import { Transaction, transactionData } from "../../../lib/types";
 import { TransactionComponent } from "../transactions/(transaction-components)/TransactionComponent";
 import ActionButton from "@/app/(home-components)/ActionButton";
 import { calculateUserBalance } from "@/app/utils/financeUtils";
+import { Dispatch, SetStateAction } from "react";
+import { Button } from "@/components/ui/button";
 
-const BalanceInformation = ({ transactions }: transactionData) => {
+type BalanceInformationProps = {
+  transactions: Transaction[];
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+};
+
+const BalanceInformation = ({
+  transactions,
+  setShowModal,
+}: {
+  transactions: Transaction[];
+  setShowModal: Dispatch<SetStateAction<boolean>>;
+}) => {
   const { userBalance, income, spent } = calculateUserBalance({ transactions });
 
   return (
@@ -35,10 +48,9 @@ const BalanceInformation = ({ transactions }: transactionData) => {
           Ver Extrato
         </Link>
       </div>
-      <ActionButton
-        innerText="Adicionar Transação"
-        navigationRef="/dashboard/transactions/add"
-      />
+      <Button onClick={() => setShowModal(true)} className="mt-10">
+        Adicionar Transação
+      </Button>
       <LatestTransactions transactions={transactions} />
     </>
   );

@@ -14,9 +14,8 @@ export default async function TransactionPage() {
   return (
     <>
       <DashboardNavbar />
-      <div className="bg-primary1 bg-opacity-30 py-10 lg:max-w-[1280px] mx-auto">
-        <Transactions transactions={data} />
-      </div>
+
+      <Transactions transactions={data} />
     </>
   );
 }

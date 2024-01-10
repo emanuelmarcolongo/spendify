@@ -17,9 +17,4 @@ export const dashboardNavLinks = [
       name: "Transações",
       ref: "/dashboard/transactions",
     },
-    {
-      id: "add",
-      name: "Adicionar",
-      ref: "/dashboard/transactions/add",
-    },
   ];

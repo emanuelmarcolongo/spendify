@@ -7,23 +7,35 @@ import { TimeFilter } from "./TimeFilter";
 import styles from "@/app/styles";
 import { ExpensesGraphic } from "./ExpensesGraphic";
 import { useTimeFilter } from "@/app/utils/filters";
+import { AddTransactionModal } from "../transactions/(transaction-components)/AddTransaction";
+import DashboardNavbar from "./Navbar";
 
 const DashboardComponent = ({ transactions }: transactionData) => {
   const [time, setTime] = useState<string>("month");
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const timeFilterTransactions = Array.isArray(transactions)
     ? useTimeFilter({ transactions, time })
     : [];
 
   return (
-    <div className={`${styles.paddingX}`}>
-      <div className="mx-auto">
-        <TimeFilter time={time} setTime={setTime} />
-      </div>
+    <>
+      <DashboardNavbar setShowModal={setShowModal} />
+      <div
+        className={`${styles.paddingX} bg-primary1  lg:max-w-[1280px] mt-[100px] mx-auto`}
+      >
+        <div className="mx-auto">
+          <TimeFilter time={time} setTime={setTime} />
+        </div>
+        {showModal && <AddTransactionModal setShowModal={setShowModal} />}
 
-      <BalanceInformation transactions={timeFilterTransactions} />
-      <ExpensesGraphic transactions={timeFilterTransactions} />
-    </div>
+        <BalanceInformation
+          setShowModal={setShowModal}
+          transactions={timeFilterTransactions}
+        />
+        <ExpensesGraphic transactions={timeFilterTransactions} />
+      </div>
+    </>
   );
 };
 
